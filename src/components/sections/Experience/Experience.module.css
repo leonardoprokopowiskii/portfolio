@@ -1,0 +1,43 @@
+.tag {
+  align-self: flex-start;
+  background: #E4EDFF;
+  color: var(--royal);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 4px 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+.cardTitle {
+  font: 800 1.6rem var(--display);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.cardDesc {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.feat {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 28px;
+}
+
+.feat li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.feat li::before {
+  content: "✓";
+  color: var(--blue);
+  font-weight: 800;
+  flex-shrink: 0;
+}
