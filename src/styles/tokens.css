@@ -1,0 +1,24 @@
+:root {
+  box-sizing: border-box;
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+
+  --bg: #F1F5FB;
+  --ink: #0A1630;
+  --muted: #4F5E7D;
+  --line: #D8E2F1;
+  --surface: #FFFFFF;
+
+  --royal: #1D4ED8;
+  --blue: #2563EB;
+  --sky: #0EA5E9;
+  --cyan: #22D3EE;
+  --amber: #FFC799;
+
+  --grad: linear-gradient(105deg, #1D4ED8, #0EA5E9 65%, #22D3EE);
+
+  --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
+  --mono: ui-monospace, 'Cascadia Code', SFMono-Regular, Menlo, Consolas, monospace;
+}

@@ -1,0 +1,82 @@
+@keyframes drift {
+  to {
+    transform: translate(50px, 40px) scale(1.12);
+  }
+}
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+}
+
+@keyframes rise {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes land {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-16.6666667%);
+  }
+}
+
+@keyframes mgrad {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.rv {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d, 0s),
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d, 0s);
+}
+
+.rv.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .rv {
+    opacity: 1;
+    transform: none;
+  }
+}
