@@ -1,5 +1,41 @@
+import { LanguageProvider } from './i18n/LanguageContext';
+import { useScrollProgress } from './hooks/useScrollProgress';
+import { useRevealOnScroll } from './hooks/useRevealOnScroll';
+import { ScrollProgress } from './components/layout/ScrollProgress/ScrollProgress';
+import { Navbar } from './components/layout/Navbar/Navbar';
+import { Hero } from './components/sections/Hero/Hero';
+import { Projects } from './components/sections/Projects/Projects';
+import { Experience } from './components/sections/Experience/Experience';
+import { Stack } from './components/sections/Stack/Stack';
+import { Contact } from './components/sections/Contact/Contact';
+import { Footer } from './components/layout/Footer/Footer';
+
+function PortfolioContent() {
+  const { progress, scrolled } = useScrollProgress();
+  useRevealOnScroll();
+
+  return (
+    <>
+      <ScrollProgress progress={progress} />
+      <Navbar scrolled={scrolled} />
+      <Hero />
+      <main className="wrap">
+        <Projects />
+        <Experience />
+        <Stack />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}
+
 export function App() {
-  return <div />;
+  return (
+    <LanguageProvider>
+      <PortfolioContent />
+    </LanguageProvider>
+  );
 }
 
 export default App;

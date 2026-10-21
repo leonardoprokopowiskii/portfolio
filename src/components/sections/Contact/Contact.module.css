@@ -1,0 +1,158 @@
+.cwrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 52px 40px;
+  background: linear-gradient(120deg, #0A1630, #1E3A8A 50%, #0EA5E9);
+  color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cta::before,
+.cta::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  animation: drift 14s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  to {
+    transform: translate(50px, 40px) scale(1.12);
+  }
+}
+
+.cta::before {
+  width: 320px;
+  height: 320px;
+  top: -120px;
+  left: -60px;
+}
+
+.cta::after {
+  width: 250px;
+  height: 250px;
+  bottom: -100px;
+  right: -40px;
+  animation-delay: -5s;
+}
+
+.cta > * {
+  position: relative;
+}
+
+.ctaSub {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 28px;
+  max-width: 36em;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.formTitle {
+  font: 800 1.4rem var(--display);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.fld {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fld label {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.fld input,
+.fld textarea {
+  font: inherit;
+  padding: 12px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--ink);
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.fld input:focus,
+.fld textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+  background: #fff;
+}
+
+.fld textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.send {
+  margin-top: 12px;
+}
+
+.msg {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.msg:empty {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .cwrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .row2 {
+    grid-template-columns: 1fr;
+  }
+  .cta {
+    padding: 44px 22px;
+  }
+  .form {
+    padding: 22px;
+  }
+  .send {
+    margin-top: 6px;
+  }
+}
