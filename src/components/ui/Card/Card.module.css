@@ -1,0 +1,44 @@
+.card {
+  --mx: 50%;
+  --my: 0;
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s, border-color 0.35s;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(380px circle at var(--mx) var(--my), rgba(37, 99, 235, 0.12), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.interactive:hover {
+  transform: translateY(-6px);
+  border-color: #9DB8F5;
+  box-shadow: 0 30px 50px -28px rgba(29, 78, 216, 0.45);
+}
+
+.interactive:hover::before {
+  opacity: 1;
+}
+
+.card > * {
+  position: relative;
+}
+
+@media (max-width: 700px) {
+  .card {
+    padding: 22px;
+  }
+}
