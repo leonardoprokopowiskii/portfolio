@@ -1,0 +1,85 @@
+.marquee {
+  position: relative;
+  background: linear-gradient(105deg, #0A1630 0%, #1D4ED8 30%, #0E8AD0 50%, #1D4ED8 70%, #0A1630 100%);
+  background-size: 200% 100%;
+  animation: mgrad 14s ease-in-out infinite alternate;
+  padding: 6px 0;
+  overflow: hidden;
+}
+
+@keyframes mgrad {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.marquee::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 40%, rgba(10, 22, 48, 0.25));
+}
+
+.mrow {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 5px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: slide var(--s, 34s) linear infinite;
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-16.6666667%);
+  }
+}
+
+.grp {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.tech {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-right: 10px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font: 600 0.8rem var(--body);
+  white-space: nowrap;
+  transition: transform 0.25s, background 0.25s, border-color 0.25s;
+}
+
+.tech:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: var(--c);
+}
+
+.tech b {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  background: var(--b);
+  color: var(--f);
+}
+
+.tech b svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+}
