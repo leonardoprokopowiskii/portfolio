@@ -3,7 +3,7 @@
   top: calc(env(safe-area-inset-top, 0px) + 12px);
   left: 50%;
   translate: -50% 0;
-  width: min(1440px, calc(100% - 32px));
+  width: min(1280px, calc(100% - 32px));
   z-index: 30;
   display: flex;
   align-items: center;
