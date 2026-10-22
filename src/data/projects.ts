@@ -54,8 +54,8 @@ export const featuredProject: FeaturedProject = {
         en: 'SIGAP Academy:',
       },
       text: {
-        pt: 'interface web integrada de capacitação com trilhas de aprendizado, vídeos e materiais técnicos da operação.',
-        en: 'integrated web training platform with learning paths, videos and technical material from the operation.',
+        pt: 'ambiente integrado de capacitação para aprendizado do framework de trabalho da nossa área, com trilhas e materiais técnicos da operação.',
+        en: 'integrated training environment for learning our area’s work framework, featuring structured paths and technical materials.',
       },
     },
     {
@@ -117,6 +117,7 @@ export const cliProjects: CliProject[] = [
       { prefix: '2.', prefixType: 'number', text: ' Residential Address & Automatic Fields' },
       { prefix: '3.', prefixType: 'number', text: ' Guardian Contact & Validation States' },
       { prefix: '4.', prefixType: 'number', text: ' Shift & Extracurricular Sports Radio Cards' },
+      { prefix: '5.', prefixType: 'number', text: ' Terms Consent & Form Actions' },
     ],
     repoUrl: 'https://github.com/leonardoprokopowiskii/enrollment-form',
     delay: '.12s',

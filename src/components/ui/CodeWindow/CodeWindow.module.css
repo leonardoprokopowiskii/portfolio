@@ -7,6 +7,8 @@
   overflow: hidden;
   box-shadow: 0 40px 80px -34px rgba(29, 78, 216, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .win::before {
@@ -20,12 +22,13 @@
 .flat {
   box-shadow: none;
   margin-bottom: 22px;
+  height: calc(100% - 22px);
 }
 
 .top {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   padding: 10px 16px;
   background: rgba(255, 255, 255, 0.03);
   border-bottom: 1px solid rgba(125, 168, 255, 0.16);
@@ -33,17 +36,53 @@
   font: 500 0.8rem var(--mono);
 }
 
-.top i {
+.fileIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+.tsIcon {
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
+  background: #3178C6;
+  color: #fff;
+  font: 800 0.58rem / 1 var(--body);
+  letter-spacing: -0.02em;
+  padding-top: 1px;
+}
+
+.htmlIcon {
+  color: #F97316;
+  font: 800 0.82rem / 1 var(--mono);
+  letter-spacing: -0.06em;
+}
+
+.pyDot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3776AB 50%, #FFD43B 50%);
+  flex-shrink: 0;
+}
+
+.defaultDot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3776AB 50%, #FFD43B 50%);
+  background: #3B82F6;
+  flex-shrink: 0;
 }
 
 .code {
   padding: 16px 0 18px;
   font: 400 clamp(0.78rem, 0.95vw, 0.92rem) / 1.8 var(--mono);
   overflow-x: auto;
+  flex: 1;
 }
 
 .heroPadding {

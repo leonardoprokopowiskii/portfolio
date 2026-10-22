@@ -1,9 +1,22 @@
+.projectGrid {
+  align-items: stretch;
+}
+
 .fullSpan {
   grid-column: 1 / -1;
 }
 
+.projectCard {
+  grid-row: span 5;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+}
+
 .tag {
   align-self: flex-start;
+  justify-self: flex-start;
   background: #E4EDFF;
   color: var(--royal);
   font-weight: 600;
@@ -79,6 +92,7 @@
   display: inline-flex;
   gap: 8px;
   align-items: center;
+  justify-self: flex-start;
 }
 
 .go::after {
@@ -105,5 +119,11 @@
 @media (max-width: 700px) {
   .feat {
     grid-template-columns: 1fr;
+  }
+
+  .projectCard {
+    grid-row: auto;
+    display: flex;
+    flex-direction: column;
   }
 }

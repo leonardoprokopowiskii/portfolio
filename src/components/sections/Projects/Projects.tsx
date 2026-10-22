@@ -12,7 +12,7 @@ export function Projects() {
       <h2 className="rv">{t.projects.title}</h2>
       <p className="sub rv">{t.projects.subtitle}</p>
 
-      <div className="grid">
+      <div className={`grid ${styles.projectGrid}`}>
         <Card className={styles.fullSpan}>
           <span className={styles.tag}>{t.projects.workTag}</span>
           <h3 className={styles.cardTitle}>{featuredProject.title}</h3>
@@ -38,7 +38,7 @@ export function Projects() {
         </Card>
 
         {cliProjects.map((project) => (
-          <Card key={project.id} delay={project.delay}>
+          <Card key={project.id} className={styles.projectCard} delay={project.delay}>
             <span className={styles.tag}>{project.tag}</span>
             <h3 className={styles.cardTitle}>{project.title}</h3>
             <p className={styles.cardDesc}>{project.description[lang]}</p>

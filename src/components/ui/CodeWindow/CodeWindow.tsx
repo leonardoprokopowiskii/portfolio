@@ -9,6 +9,32 @@ interface CodeWindowProps {
   children: ReactNode;
 }
 
+function FileBadge({ filename }: { filename: string }) {
+  const ext = filename.split('.').pop()?.toLowerCase();
+
+  if (ext === 'ts' || ext === 'tsx') {
+    return (
+      <span className={`${styles.fileIcon} ${styles.tsIcon}`} aria-hidden="true">
+        TS
+      </span>
+    );
+  }
+
+  if (ext === 'html') {
+    return (
+      <span className={`${styles.fileIcon} ${styles.htmlIcon}`} aria-hidden="true">
+        &lt;&gt;
+      </span>
+    );
+  }
+
+  if (ext === 'py') {
+    return <i className={styles.pyDot} aria-hidden="true" />;
+  }
+
+  return <i className={styles.defaultDot} aria-hidden="true" />;
+}
+
 export function CodeWindow({
   filename,
   ariaLabel,
@@ -23,7 +49,7 @@ export function CodeWindow({
       aria-label={ariaLabel}
     >
       <div className={styles.top}>
-        <i />
+        <FileBadge filename={filename} />
         {filename}
       </div>
       <div className={`${styles.code} ${heroPadding ? styles.heroPadding : ''}`.trim()}>
