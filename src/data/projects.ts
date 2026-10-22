@@ -34,8 +34,8 @@ export const featuredProject: FeaturedProject = {
   id: 'spro-sigap',
   title: 'SPRO SIGAP',
   description: {
-    pt: 'Ecossistema interno de governança, automação e engenharia de produto integrado ao Azure DevOps. Centraliza indicadores executivos, gestão de releases, capacitação interna e automações operacionais para PMs, POs, Scrum Masters e diretoria.',
-    en: 'Internal ecosystem for governance, automation and product engineering, integrated with Azure DevOps. It centralizes executive indicators, release management, internal training and operational automations for PMs, POs, Scrum Masters and leadership.',
+    pt: 'Plataforma web full-stack corporativa de governança, automação e engenharia de produto integrada ao Azure DevOps. Centraliza interfaces interativas, indicadores executivos, gestão de releases, capacitação interna e automações operacionais para PMs, POs, Scrum Masters e diretoria.',
+    en: 'Enterprise full-stack web platform for governance, automation and product engineering, integrated with Azure DevOps. It centralizes interactive interfaces, executive indicators, release management, internal training and operational automations for PMs, POs, Scrum Masters and leadership.',
   },
   features: [
     {
@@ -54,8 +54,8 @@ export const featuredProject: FeaturedProject = {
         en: 'SIGAP Academy:',
       },
       text: {
-        pt: 'plataforma integrada de capacitação com trilhas de aprendizado, vídeos e materiais técnicos da operação.',
-        en: 'integrated training platform with learning paths, videos and technical material from the operation.',
+        pt: 'interface web integrada de capacitação com trilhas de aprendizado, vídeos e materiais técnicos da operação.',
+        en: 'integrated web training platform with learning paths, videos and technical material from the operation.',
       },
     },
     {
@@ -64,32 +64,70 @@ export const featuredProject: FeaturedProject = {
         en: 'Sprint Dashboards & Reports:',
       },
       text: {
-        pt: 'visão tática de entregas, reprogramação automática de demandas e disparos de reports semanais.',
-        en: 'tactical view of deliveries, automatic rescheduling of demands and weekly report dispatches.',
+        pt: 'visão tática interativa de entregas, reprogramação automática de demandas e disparos de reports semanais.',
+        en: 'interactive tactical view of deliveries, automatic rescheduling of demands and weekly report dispatches.',
       },
     },
     {
       bold: {
-        pt: 'Arquitetura & Segurança:',
-        en: 'Architecture & Security:',
+        pt: 'Arquitetura Full-Stack & Segurança:',
+        en: 'Full-Stack Architecture & Security:',
       },
       text: {
-        pt: 'integração em tempo real com APIs do Azure DevOps, banco PostgreSQL e autenticação SSO via Keycloak.',
-        en: 'real-time integration with Azure DevOps APIs, a PostgreSQL database and SSO authentication via Keycloak.',
+        pt: 'frontend moderno em React, APIs e integrações em tempo real com Azure DevOps, banco PostgreSQL e autenticação SSO via Keycloak.',
+        en: 'modern React frontend, real-time APIs and integrations with Azure DevOps, PostgreSQL database and SSO authentication via Keycloak.',
       },
     },
   ],
-  chips: ['Python', 'Flask', 'React', 'PostgreSQL', 'Azure DevOps API', 'Keycloak'],
+  chips: ['React', 'TypeScript', 'Node.js', 'Python', 'Flask', 'PostgreSQL', 'Azure DevOps API', 'Keycloak'],
 };
 
 export const cliProjects: CliProject[] = [
   {
+    id: 'tech-news-page',
+    tag: 'Frontend · Web UI',
+    title: 'Tech News Portal',
+    description: {
+      pt: 'Portal de notícias de tecnologia com layout editorial moderno em CSS Grid, hierarquia visual e seções categorizadas.',
+      en: 'Technology news portal featuring a modern CSS Grid editorial layout, visual hierarchy and categorized sections.',
+    },
+    filename: 'index.html',
+    lines: [
+      { prefixType: 'comment', text: '<!-- Tech News Portal Layout -->' },
+      { prefix: '1.', prefixType: 'number', text: ' <header class="navbar-grid">' },
+      { prefix: '2.', prefixType: 'number', text: ' <main class="featured-highlights">' },
+      { prefix: '3.', prefixType: 'number', text: ' <section class="most-read-weekly">' },
+      { prefix: '4.', prefixType: 'number', text: ' <section class="ai-highlights">' },
+      { prefix: '5.', prefixType: 'number', text: ' <aside class="ads-and-more">' },
+    ],
+    repoUrl: 'https://github.com/leonardoprokopowiskii/tech-news-page',
+  },
+  {
+    id: 'enrollment-form',
+    tag: 'Frontend · Forms & UI',
+    title: 'School Enrollment Form',
+    description: {
+      pt: 'Aplicação web de formulário de matrícula com foco em usabilidade, estados de foco/validação, upload customizado e seleção interativa.',
+      en: 'School enrollment web form built with a focus on usability, validation/focus states, custom file upload and interactive selection.',
+    },
+    filename: 'enrollment.html',
+    lines: [
+      { prefixType: 'comment', text: '<!-- Interactive Form Architecture -->' },
+      { prefix: '1.', prefixType: 'number', text: ' Child Information & Birth Certificate Dropzone' },
+      { prefix: '2.', prefixType: 'number', text: ' Residential Address & Automatic Fields' },
+      { prefix: '3.', prefixType: 'number', text: ' Guardian Contact & Validation States' },
+      { prefix: '4.', prefixType: 'number', text: ' Shift & Extracurricular Sports Radio Cards' },
+    ],
+    repoUrl: 'https://github.com/leonardoprokopowiskii/enrollment-form',
+    delay: '.12s',
+  },
+  {
     id: 'task-manager',
-    tag: 'Python',
+    tag: 'Backend · Python',
     title: 'Task Manager',
     description: {
-      pt: 'Gerencie suas tarefas por um menu simples no terminal.',
-      en: 'Manage your tasks from a simple menu in the terminal.',
+      pt: 'Gerenciador de tarefas em Python com operações completas de CRUD, controle de status e arquitetura modular no terminal.',
+      en: 'Task manager in Python featuring full CRUD operations, status tracking and modular CLI architecture.',
     },
     filename: 'task_manager.py',
     lines: [
@@ -105,11 +143,11 @@ export const cliProjects: CliProject[] = [
   },
   {
     id: 'contact-manager',
-    tag: 'Python',
+    tag: 'Backend · Python',
     title: 'Contact Manager',
     description: {
-      pt: 'Salve, edite e organize contatos, com favoritos e filtro de favoritos.',
-      en: 'Save, edit and organize contacts, with favorites and a favorites filter.',
+      pt: 'Sistema de gerenciamento de contatos com operações de CRUD, marcação de favoritos e filtragem dedicada.',
+      en: 'Contact management system featuring CRUD operations, favorite toggling and dedicated filtering.',
     },
     filename: 'contact_manager.py',
     lines: [

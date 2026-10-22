@@ -21,21 +21,21 @@ export const experienceItems: ExperienceItem[] = [
       en: 'SPRO, an NTT DATA company',
     },
     subtitle: {
-      pt: 'Aprendiz de Produtos, desenvolvimento de software',
-      en: 'Products apprentice, software development',
+      pt: 'Aprendiz de Produtos · Desenvolvimento de Software Full-Stack',
+      en: 'Products Apprentice · Full-Stack Software Development',
     },
     bullets: {
       pt: [
-        'Desenvolvo e evoluo aplicações internas: novas funcionalidades, automações e integrações.',
-        'Trabalho com Python, Flask, JavaScript, TypeScript, React, Node.js, APIs REST e Docker.',
-        'Fluxos de autenticação, relatórios, dashboards e automações de acompanhamento de projetos.',
-        'Git e Azure DevOps: branches, pull requests e fluxo de entrega.',
+        'Desenvolvo e evoluo aplicações web internas de ponta a ponta: interfaces modernas, APIs, automações e integrações.',
+        'Atuação prática com React, TypeScript, JavaScript, Node.js, Python, Flask, APIs REST e Docker.',
+        'Implementação de fluxos de autenticação (SSO/Keycloak), relatórios gerenciais, dashboards interativos e automações de acompanhamento de projetos.',
+        'Vivência corporativa com Git e Azure DevOps: branches, pull requests, CI/CD e governança de entregas.',
       ],
       en: [
-        'Build and evolve internal apps: new features, automations and integrations.',
-        'Work with Python, Flask, JavaScript, TypeScript, React, Node.js, REST APIs and Docker.',
-        'Authentication flows, reports, dashboards and project-tracking automations.',
-        'Git and Azure DevOps: branches, pull requests and delivery workflow.',
+        'Build and evolve end-to-end internal web applications: modern interfaces, APIs, automations and integrations.',
+        'Hands-on work with React, TypeScript, JavaScript, Node.js, Python, Flask, REST APIs and Docker.',
+        'Implementation of authentication flows (SSO/Keycloak), executive reports, interactive dashboards and project-tracking automations.',
+        'Enterprise workflow with Git and Azure DevOps: branches, pull requests, CI/CD and delivery governance.',
       ],
     },
   },
@@ -55,12 +55,12 @@ export const experienceItems: ExperienceItem[] = [
     },
     bullets: {
       pt: [
-        'Cursos na Rocketseat: Python, Git, Flask, HTML e CSS, JavaScript, TypeScript, Node.js e React.',
-        'Foco atual em Python, Flask e FastAPI, e aprendendo Docker e APIs REST.',
+        'Formação complementar na Rocketseat: trilha Full-Stack com React, TypeScript, JavaScript, Node.js, HTML/CSS, Python, Flask e Git.',
+        'Foco atual em arquitetura web Full-Stack: APIs RESTful, Prisma ORM, testes automatizados (Jest), autenticação JWT, bancos relacionais e Docker.',
       ],
       en: [
-        'Rocketseat courses: Python, Git, Flask, HTML and CSS, JavaScript, TypeScript, Node.js and React.',
-        'Now focused on Python, Flask and FastAPI, and learning Docker and REST APIs.',
+        'Complementary training at Rocketseat: Full-Stack track covering React, TypeScript, JavaScript, Node.js, HTML/CSS, Python, Flask and Git.',
+        'Currently focused on Full-Stack web architecture: RESTful APIs, Prisma ORM, automated testing (Jest), JWT authentication, relational databases and Docker.',
       ],
     },
     delay: '.12s',

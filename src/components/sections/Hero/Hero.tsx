@@ -58,49 +58,46 @@ export function Hero() {
         </div>
 
         <div className={styles.stage}>
-          <CodeWindow filename="developer.py" ariaLabel={t.hero.codeAria} heroPadding>
+          <CodeWindow filename="developer.ts" ariaLabel={t.hero.codeAria} heroPadding>
             <div className={styles.line} style={lineStyle(0)}>
-              <span className={styles.k}>from</span> dataclasses <span className={styles.k}>import</span> dataclass
+              <span className={styles.k}>export const</span> <span className={styles.f}>developer</span> = {'{'}
             </div>
             <div className={styles.line} style={lineStyle(1)}>
-              {' '}
+              {'  '}name: <span className={styles.s}>"Leonardo Prokopowiski"</span>,
             </div>
             <div className={styles.line} style={lineStyle(2)}>
-              <span className={styles.f}>@dataclass</span>
+              {'  '}role: <span className={styles.s}>"Full-Stack Developer"</span>,
             </div>
             <div className={styles.line} style={lineStyle(3)}>
-              <span className={styles.k}>class</span> <span className={styles.f}>Developer</span>:
+              {'  '}company: <span className={styles.s}>"SPRO, an NTT DATA company"</span>,
             </div>
             <div className={styles.line} style={lineStyle(4)}>
-              {'    '}name = <span className={styles.s}>"Leonardo Prokopowiski"</span>
+              {'  '}frontend: [<span className={styles.s}>"React"</span>, <span className={styles.s}>"Node.js"</span>, <span className={styles.s}>"TypeScript"</span>],
             </div>
             <div className={styles.line} style={lineStyle(5)}>
-              {'    '}role = <span className={styles.s}>"Backend developer"</span>
+              {'  '}backend: [<span className={styles.s}>"Node.js"</span>, <span className={styles.s}>"Python"</span>, <span className={styles.s}>"Flask"</span>],
             </div>
             <div className={styles.line} style={lineStyle(6)}>
-              {'    '}company = <span className={styles.s}>"SPRO, NTT DATA"</span>
+              {'  '}databases: [<span className={styles.s}>"PostgreSQL"</span>, <span className={styles.s}>"MySQL"</span>, <span className={styles.s}>"SQLite"</span>],
             </div>
             <div className={styles.line} style={lineStyle(7)}>
-              {'    '}stack = (<span className={styles.s}>"Python"</span>, <span className={styles.s}>"Flask"</span>, <span className={styles.s}>"FastAPI"</span>)
+              {'  '}devops: [<span className={styles.s}>"Azure DevOps"</span>, <span className={styles.s}>"Docker"</span>, <span className={styles.s}>"Git"</span>],
             </div>
             <div className={styles.line} style={lineStyle(8)}>
-              {'    '}databases = (<span className={styles.s}>"PostgreSQL"</span>, <span className={styles.s}>"MongoDB"</span>)
+              {'}'} <span className={styles.k}>as const</span>;
             </div>
             <div className={styles.line} style={lineStyle(9)}>
-              {'    '}learning = <span className={styles.s}>"Docker, REST APIs"</span>
-            </div>
-            <div className={styles.line} style={lineStyle(10)}>
               {' '}
             </div>
-            <div className={styles.line} style={lineStyle(11)}>
-              <span className={styles.c}># always learning, always building</span>
+            <div className={styles.line} style={lineStyle(10)}>
+              <span className={styles.c}>// always learning, always building</span>
               <span className={styles.caret} />
             </div>
           </CodeWindow>
 
-          <div className={`${styles.fb} ${styles.f1}`}>FastAPI</div>
-          <div className={`${styles.fb} ${styles.f2}`}>Docker</div>
-          <div className={`${styles.fb} ${styles.f3}`}>Flask</div>
+          <div className={`${styles.fb} ${styles.f1}`}>React &amp; TS</div>
+          <div className={`${styles.fb} ${styles.f2}`}>Node.js</div>
+          <div className={`${styles.fb} ${styles.f3}`}>Python &amp; Flask</div>
         </div>
       </div>
 

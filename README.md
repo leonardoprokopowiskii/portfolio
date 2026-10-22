@@ -1,6 +1,6 @@
 # Leonardo Prokopowiski — Portfolio
 
-Personal portfolio of **Leonardo Prokopowiski**, Backend Developer focused on **Python, Flask, FastAPI, and Data/Automation**, based in Curitiba, Brazil.
+Personal portfolio of **Leonardo Prokopowiski**, Full-Stack Developer focused on **React, TypeScript, Node.js, Python, Flask, and RESTful APIs**, based in Curitiba, Brazil.
 
 Built with **React 18 + TypeScript + Vite** and **pure CSS Modules** (zero CSS frameworks).
 
@@ -11,7 +11,7 @@ Built with **React 18 + TypeScript + Vite** and **pure CSS Modules** (zero CSS f
 - **Bilingual (PT-BR / EN):** Instant language toggle with `localStorage` persistence and browser language detection.
 - **Pure CSS Architecture:** Design tokens (`tokens.css`), global keyframes (`animations.css`), and scoped CSS Modules (`*.module.css`).
 - **Interactive UI:**
-  - Animated 3-line hero headline & `developer.py` Vesper code window
+  - Animated 3-line hero headline & `developer.ts` Vesper code window
   - Infinite animated gradient tech marquee with custom SVGs
   - Mouse-tracking radial spotlight on project & stack cards
   - Scroll progress bar & IntersectionObserver reveal animations
