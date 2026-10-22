@@ -33,14 +33,18 @@
 }
 
 .logo {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 9px;
   background: var(--grad);
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
-  font-size: 0.75rem;
+  font: 800 0.76rem / 1 var(--display);
+  letter-spacing: 0.09em;
+  padding-left: 0.09em;
+  flex-shrink: 0;
 }
 
 .menu {
@@ -97,18 +101,29 @@
 }
 
 .gh {
-  background: var(--ink);
-  color: #fff;
-  padding: 9px 18px;
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(10, 22, 48, 0.12);
+  color: var(--muted);
   text-decoration: none;
-  font-weight: 600;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.gh svg {
+  width: 19px;
+  height: 19px;
 }
 
 .gh:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px -8px var(--ink);
+  background: rgba(29, 78, 216, 0.08);
+  border-color: rgba(29, 78, 216, 0.22);
+  color: var(--ink);
+  transform: translateY(-1px);
 }
 
 .burger {
