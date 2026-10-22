@@ -21,10 +21,11 @@ export function Hero() {
 
       <div className={`wrap ${styles.hero}`}>
         <div>
-          <div className={styles.pill}>
-            <span className={styles.dot} />
-            {t.hero.pill}
-          </div>
+          <p className={styles.eyebrow}>
+            <span className={styles.eyebrowRole}>{t.hero.pillRole}</span>
+            <span className={styles.eyebrowSep} aria-hidden="true">·</span>
+            <span className={styles.eyebrowCompany}>{t.hero.pillCompany}</span>
+          </p>
 
           <h1 className={styles.title}>
             <span style={titleLineStyle(0)}>
@@ -72,7 +73,7 @@ export function Hero() {
               {'  '}company: <span className={styles.s}>"SPRO, an NTT DATA company"</span>,
             </div>
             <div className={styles.line} style={lineStyle(4)}>
-              {'  '}frontend: [<span className={styles.s}>"React"</span>, <span className={styles.s}>"Node.js"</span>, <span className={styles.s}>"TypeScript"</span>],
+              {'  '}frontend: [<span className={styles.s}>"React"</span>, <span className={styles.s}>"JavaScript"</span>, <span className={styles.s}>"TypeScript"</span>],
             </div>
             <div className={styles.line} style={lineStyle(5)}>
               {'  '}backend: [<span className={styles.s}>"Node.js"</span>, <span className={styles.s}>"Python"</span>, <span className={styles.s}>"Flask"</span>],

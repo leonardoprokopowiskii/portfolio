@@ -9,7 +9,8 @@ export interface Translations {
     openMenu: string;
   };
   hero: {
-    pill: string;
+    pillRole: string;
+    pillCompany: string;
     h1Line1: string;
     h1Line2: string;
     h1Line3: string;
@@ -67,7 +68,8 @@ export const translations: Record<Language, Translations> = {
       openMenu: 'Abrir menu',
     },
     hero: {
-      pill: 'Aprendiz de desenvolvimento de software @ SPRO, an NTT DATA company',
+      pillRole: 'Desenvolvedor Full-Stack',
+      pillCompany: 'SPRO, an NTT DATA company',
       h1Line1: 'Olá, sou o Leonardo.',
       h1Line2: 'Aplicações web, APIs e',
       h1Line3: 'soluções Full-Stack.',
@@ -125,7 +127,8 @@ export const translations: Record<Language, Translations> = {
       openMenu: 'Open menu',
     },
     hero: {
-      pill: 'Software development apprentice @ SPRO, an NTT DATA company',
+      pillRole: 'Full-Stack Developer',
+      pillCompany: 'SPRO, an NTT DATA company',
       h1Line1: 'Hi, I’m Leonardo.',
       h1Line2: 'Web apps, APIs and',
       h1Line3: 'Full-Stack solutions.',
