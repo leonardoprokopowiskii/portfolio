@@ -31,54 +31,47 @@
 .top {
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.03);
+  gap: 12px;
+  padding: 11px 16px;
+  background: rgba(255, 255, 255, 0.035);
   border-bottom: 1px solid rgba(125, 168, 255, 0.16);
   color: #8FA6D1;
   font: 500 0.8rem var(--mono);
 }
 
-.fileIcon {
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 10.5px;
+  height: 10.5px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.dotRed {
+  background: #FF5F56;
+}
+
+.dotYellow {
+  background: #FFBD2E;
+}
+
+.dotGreen {
+  background: #27C93F;
+}
+
+.filename {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  line-height: 1;
-  user-select: none;
-}
-
-.tsIcon {
-  width: 17px;
-  height: 17px;
-  border-radius: 4px;
-  background: #3178C6;
-  color: #fff;
-  font: 800 0.58rem / 1 var(--body);
-  letter-spacing: -0.02em;
-  padding-top: 1px;
-}
-
-.htmlIcon {
-  color: #F97316;
-  font: 800 0.82rem / 1 var(--mono);
-  letter-spacing: -0.06em;
-}
-
-.pyDot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #3776AB 50%, #FFD43B 50%);
-  flex-shrink: 0;
-}
-
-.defaultDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #3B82F6;
-  flex-shrink: 0;
+  color: #8FA6D1;
+  font: 500 0.8rem var(--mono);
+  letter-spacing: -0.01em;
 }
 
 .code {

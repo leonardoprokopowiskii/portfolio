@@ -9,32 +9,6 @@ interface CodeWindowProps {
   children: ReactNode;
 }
 
-function FileBadge({ filename }: { filename: string }) {
-  const ext = filename.split('.').pop()?.toLowerCase();
-
-  if (ext === 'ts' || ext === 'tsx') {
-    return (
-      <span className={`${styles.fileIcon} ${styles.tsIcon}`} aria-hidden="true">
-        TS
-      </span>
-    );
-  }
-
-  if (ext === 'html') {
-    return (
-      <span className={`${styles.fileIcon} ${styles.htmlIcon}`} aria-hidden="true">
-        &lt;&gt;
-      </span>
-    );
-  }
-
-  if (ext === 'py') {
-    return <i className={styles.pyDot} aria-hidden="true" />;
-  }
-
-  return <i className={styles.defaultDot} aria-hidden="true" />;
-}
-
 export function CodeWindow({
   filename,
   ariaLabel,
@@ -49,8 +23,12 @@ export function CodeWindow({
       aria-label={ariaLabel}
     >
       <div className={styles.top}>
-        <FileBadge filename={filename} />
-        {filename}
+        <div className={styles.dots} aria-hidden="true">
+          <span className={`${styles.dot} ${styles.dotRed}`} />
+          <span className={`${styles.dot} ${styles.dotYellow}`} />
+          <span className={`${styles.dot} ${styles.dotGreen}`} />
+        </div>
+        <span className={styles.filename}>{filename}</span>
       </div>
       <div className={`${styles.code} ${heroPadding ? styles.heroPadding : ''}`.trim()}>
         {children}
