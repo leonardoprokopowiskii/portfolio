@@ -326,3 +326,25 @@
     transform: none;
   }
 }
+
+@media (max-width: 560px) {
+  .hero {
+    padding-top: 92px;
+    gap: 36px;
+  }
+  .title {
+    font-size: clamp(2.1rem, 9.2vw, 2.6rem);
+  }
+  .lead {
+    font-size: 1.02rem;
+  }
+  .btns {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btns > * {
+    width: 100%;
+    text-align: center;
+    padding-block: 15px;
+  }
+}

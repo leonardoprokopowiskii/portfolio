@@ -97,3 +97,9 @@
   overflow-wrap: break-word;
   padding: 0 clamp(12px, 3.2cqi, 20px);
 }
+
+@media (max-width: 560px) {
+  .code {
+    font-size: max(0.72rem, 2.9cqi);
+  }
+}
