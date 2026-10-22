@@ -55,17 +55,17 @@ export function Navbar({ scrolled }: NavbarProps) {
         <div className={styles.lang} role="group" aria-label="Language">
           <button
             type="button"
-            aria-pressed={lang === 'pt'}
-            onClick={() => setLang('pt')}
-          >
-            PT
-          </button>
-          <button
-            type="button"
             aria-pressed={lang === 'en'}
             onClick={() => setLang('en')}
           >
             EN
+          </button>
+          <button
+            type="button"
+            aria-pressed={lang === 'pt'}
+            onClick={() => setLang('pt')}
+          >
+            PT
           </button>
         </div>
 

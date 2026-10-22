@@ -7,17 +7,17 @@ interface LanguageContextValue {
   t: Translations;
 }
 
+const STORAGE_KEY = 'portfolio-lang';
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
 function getInitialLanguage(): Language {
   try {
-    const saved = localStorage.getItem('lang');
-    if (saved === 'pt' || saved === 'en') return saved;
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'en' || saved === 'pt') return saved;
   } catch {
     // ignore storage errors
   }
-  const browserLang = (navigator.language || '').toLowerCase();
-  return browserLang.startsWith('pt') ? 'pt' : 'en';
+  return 'en';
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
@@ -26,7 +26,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const setLang = (next: Language) => {
     setLangState(next);
     try {
-      localStorage.setItem('lang', next);
+      localStorage.setItem(STORAGE_KEY, next);
     } catch {
       // ignore storage errors
     }
