@@ -18,7 +18,7 @@
 
   --grad: linear-gradient(105deg, #1D4ED8, #0EA5E9 65%, #22D3EE);
 
-  --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
-  --body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
-  --mono: ui-monospace, 'Cascadia Code', SFMono-Regular, Menlo, Consolas, monospace;
+  --display: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  --body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', SFMono-Regular, Menlo, Consolas, monospace;
 }

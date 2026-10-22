@@ -51,12 +51,14 @@ h2 {
   font: 800 clamp(1.9rem, 3.8vw, 2.8rem) / 1.1 var(--display);
   letter-spacing: -0.025em;
   margin: 0 0 12px;
+  text-wrap: balance;
 }
 
 .sub {
   color: var(--muted);
   margin: 0 0 44px;
   max-width: 36em;
+  text-wrap: pretty;
 }
 
 .grid {
