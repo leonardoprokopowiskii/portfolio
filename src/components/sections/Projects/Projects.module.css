@@ -76,6 +76,20 @@
   border-radius: 10px;
   font-weight: 600;
   font-size: 0.88rem;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+  cursor: default;
+}
+
+.chips span:hover {
+  transform: translateY(-2.5px) scale(1.03);
+  background: #fff;
+  border-color: var(--blue);
+  color: var(--royal);
+  box-shadow: 0 8px 18px -6px rgba(37, 99, 235, 0.22);
 }
 
 .note {
@@ -93,15 +107,23 @@
   gap: 8px;
   align-items: center;
   justify-self: flex-start;
+  position: relative;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0% 1.5px no-repeat;
+  transition: color 0.25s ease, background-size 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.go:hover {
+  color: var(--blue);
+  background-size: calc(100% - 18px) 1.5px;
 }
 
 .go::after {
   content: "→";
-  transition: transform 0.25s;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .go:hover::after {
-  transform: translateX(5px);
+  transform: translateX(6px);
 }
 
 .prompt {

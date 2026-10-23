@@ -53,16 +53,43 @@
   }
 }
 
+@keyframes ambientGlow {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.85;
+  }
+}
+
+/* Premium Apple-style scroll reveal with subtle scale & unblur */
 .rv {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d, 0s),
-    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d, 0s);
+  transform: translateY(24px) scale(0.985);
+  filter: blur(4px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s),
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s);
+  will-change: opacity, transform, filter;
 }
 
 .rv.in {
   opacity: 1;
-  transform: none;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -76,7 +103,8 @@
     transition: none !important;
   }
   .rv {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
   }
 }

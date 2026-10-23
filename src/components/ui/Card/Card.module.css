@@ -10,23 +10,27 @@
   flex-direction: column;
   min-width: 0;
   overflow: hidden;
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s, border-color 0.35s;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
 }
 
+/* Ambient inner spotlight glow */
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(380px circle at var(--mx) var(--my), rgba(37, 99, 235, 0.12), transparent 70%);
+  background: radial-gradient(380px circle at var(--mx) var(--my), rgba(37, 99, 235, 0.08), transparent 70%);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.35s ease;
   pointer-events: none;
+  z-index: 0;
 }
 
 .interactive:hover {
   transform: translateY(-6px);
-  border-color: #9DB8F5;
-  box-shadow: 0 30px 50px -28px rgba(29, 78, 216, 0.45);
+  border-color: rgba(37, 99, 235, 0.28);
+  box-shadow: 0 24px 48px -20px rgba(29, 78, 216, 0.28), 0 8px 16px -8px rgba(10, 22, 48, 0.06);
 }
 
 .interactive:hover::before {
@@ -35,6 +39,7 @@
 
 .card > * {
   position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 700px) {
