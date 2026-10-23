@@ -20,42 +20,84 @@
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.5;
-  animation: drift 18s ease-in-out infinite alternate;
+  filter: blur(75px);
+  opacity: 0.36;
   pointer-events: none;
+  will-change: transform;
 }
 
-@keyframes drift {
-  to {
-    transform: translate(50px, 40px) scale(1.12);
+@keyframes blobMotion1 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(80px, 55px) scale(1.15) rotate(12deg);
+  }
+  66% {
+    transform: translate(120px, -20px) scale(0.94) rotate(-8deg);
+  }
+  100% {
+    transform: translate(50px, 75px) scale(1.12) rotate(16deg);
+  }
+}
+
+@keyframes blobMotion2 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(-100px, 65px) scale(1.2) rotate(-15deg);
+  }
+  66% {
+    transform: translate(-55px, 110px) scale(0.92) rotate(14deg);
+  }
+  100% {
+    transform: translate(-120px, 35px) scale(1.15) rotate(-10deg);
+  }
+}
+
+@keyframes blobMotion3 {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(-80px, -75px) scale(1.24) rotate(18deg);
+  }
+  66% {
+    transform: translate(70px, -45px) scale(0.88) rotate(-12deg);
+  }
+  100% {
+    transform: translate(-45px, -100px) scale(1.16) rotate(10deg);
   }
 }
 
 .b1 {
-  width: 440px;
-  height: 440px;
+  width: 460px;
+  height: 460px;
   background: #7FA6FF;
   top: -140px;
   left: -120px;
+  animation: blobMotion1 9.5s ease-in-out infinite alternate;
 }
 
 .b2 {
-  width: 380px;
-  height: 380px;
+  width: 400px;
+  height: 400px;
   background: #7DD3FC;
   top: 80px;
   right: -90px;
-  animation-delay: -6s;
+  animation: blobMotion2 11.5s ease-in-out infinite alternate;
+  animation-delay: -3s;
 }
 
 .b3 {
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
   background: #A5B8FF;
   bottom: -60px;
   left: 36%;
-  animation-delay: -11s;
+  animation: blobMotion3 10.5s ease-in-out infinite alternate;
+  animation-delay: -5s;
 }
 
 .hero {
@@ -81,6 +123,9 @@
   margin: 0 0 16px;
   font-size: 0.88rem;
   line-height: 1.4;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fade 0.8s 0.08s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .eyebrow::before {
@@ -88,7 +133,9 @@
   width: 22px;
   height: 2.5px;
   border-radius: 2px;
-  background: var(--grad);
+  background: linear-gradient(90deg, #1D4ED8, #0EA5E9, #22D3EE, #1D4ED8);
+  background-size: 200% auto;
+  animation: titleShimmer 5s linear infinite;
   flex-shrink: 0;
 }
 
@@ -119,11 +166,13 @@
   display: block;
   overflow: hidden;
   padding-bottom: 0.08em;
+  white-space: nowrap;
 }
 
 .title span i {
   display: block;
   font-style: normal;
+  white-space: nowrap;
   transform: translateY(105%);
   animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   animation-delay: calc(var(--n) * 0.14s + 0.1s);
@@ -136,10 +185,18 @@
 }
 
 .gradLine i {
-  background: var(--grad);
+  background: linear-gradient(110deg, #1D4ED8 0%, #0EA5E9 25%, #38BDF8 50%, #22D3EE 75%, #1D4ED8 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: titleShimmer 7s linear infinite;
+}
+
+@keyframes titleShimmer {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .lead {
@@ -188,12 +245,11 @@
   background: radial-gradient(closest-side, rgba(37, 99, 235, 0.38), transparent);
   filter: blur(36px);
   z-index: -1;
+  animation: ambientGlow 8s ease-in-out infinite alternate;
 }
 
 .line {
-  opacity: 0;
-  animation: fade 0.3s forwards;
-  animation-delay: calc(var(--i) * 0.14s + 1s);
+  min-height: 1.8em;
 }
 
 .k {
@@ -222,6 +278,7 @@
   vertical-align: text-bottom;
   margin-left: 3px;
   animation: blink 1s steps(1) infinite;
+  box-shadow: 0 0 10px rgba(255, 199, 153, 0.75);
 }
 
 @keyframes blink {
@@ -360,6 +417,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .eyebrow,
   .title span i,
   .lead,
   .btns,
@@ -380,7 +438,11 @@
     gap: 36px;
   }
   .title {
-    font-size: clamp(2.1rem, 9.2vw, 2.6rem);
+    font-size: clamp(1.72rem, 8.4vw, 2.55rem);
+  }
+  .eyebrow {
+    font-size: 0.82rem;
+    gap: 8px;
   }
   .lead {
     font-size: 1.02rem;

@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { socialLinks } from '../../../data/stack';
 import { Button } from '../../ui/Button/Button';
@@ -6,11 +6,128 @@ import { CodeWindow } from '../../ui/CodeWindow/CodeWindow';
 import { TechMarquee } from '../../ui/TechMarquee/TechMarquee';
 import styles from './Hero.module.css';
 
+interface CodeToken {
+  text: string;
+  className?: string;
+}
+
+type CodeLine = CodeToken[];
+
+const CODE_LINES: CodeLine[] = [
+  [
+    { text: 'export const ', className: styles.k },
+    { text: 'developer', className: styles.f },
+    { text: ' = {' },
+  ],
+  [
+    { text: '  name: ' },
+    { text: '"Leonardo Prokopowiski"', className: styles.s },
+    { text: ',' },
+  ],
+  [
+    { text: '  role: ' },
+    { text: '"Full-Stack Developer"', className: styles.s },
+    { text: ',' },
+  ],
+  [
+    { text: '  company: ' },
+    { text: '"SPRO, an NTT DATA company"', className: styles.s },
+    { text: ',' },
+  ],
+  [
+    { text: '  frontend: [' },
+    { text: '"React"', className: styles.s },
+    { text: ', ' },
+    { text: '"JavaScript"', className: styles.s },
+    { text: ', ' },
+    { text: '"TypeScript"', className: styles.s },
+    { text: '],' },
+  ],
+  [
+    { text: '  backend: [' },
+    { text: '"Node.js"', className: styles.s },
+    { text: ', ' },
+    { text: '"Python"', className: styles.s },
+    { text: ', ' },
+    { text: '"Flask"', className: styles.s },
+    { text: '],' },
+  ],
+  [
+    { text: '  databases: [' },
+    { text: '"PostgreSQL"', className: styles.s },
+    { text: ', ' },
+    { text: '"MySQL"', className: styles.s },
+    { text: ', ' },
+    { text: '"SQLite"', className: styles.s },
+    { text: '],' },
+  ],
+  [
+    { text: '  devops: [' },
+    { text: '"Azure DevOps"', className: styles.s },
+    { text: ', ' },
+    { text: '"Docker"', className: styles.s },
+    { text: ', ' },
+    { text: '"Git"', className: styles.s },
+    { text: '],' },
+  ],
+  [
+    { text: '} ' },
+    { text: 'as const', className: styles.k },
+    { text: ';' },
+  ],
+  [
+    { text: ' ' },
+  ],
+  [
+    { text: '// always learning, always building', className: styles.c },
+  ],
+];
+
+const TOTAL_CHARS = CODE_LINES.reduce(
+  (sum, line) => sum + line.reduce((lSum, token) => lSum + token.text.length, 0),
+  0
+);
+
 export function Hero() {
   const { t } = useLanguage();
+  const [typedChars, setTypedChars] = useState(0);
 
-  const lineStyle = (i: number): CSSProperties => ({ '--i': i } as CSSProperties);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setTypedChars(TOTAL_CHARS);
+      return;
+    }
+
+    let timer: number | undefined;
+
+    const startTimer = window.setTimeout(() => {
+      let current = 0;
+
+      function typeNext() {
+        if (current >= TOTAL_CHARS) return;
+
+        current += 1;
+        setTypedChars(current);
+
+        const progress = current / TOTAL_CHARS;
+        // Starts snappy at ~13ms and gently decelerates up to ~22ms (subtle, natural slowdown without dragging)
+        const delay = 13 + Math.pow(progress, 1.2) * 9;
+
+        timer = window.setTimeout(typeNext, delay);
+      }
+
+      typeNext();
+    }, 350);
+
+    return () => {
+      window.clearTimeout(startTimer);
+      if (timer) window.clearTimeout(timer);
+    };
+  }, []);
+
   const titleLineStyle = (n: number): CSSProperties => ({ '--n': n } as CSSProperties);
+
+  let globalOffset = 0;
 
   return (
     <div className={styles.heroWrap} id="top">
@@ -60,40 +177,54 @@ export function Hero() {
 
         <div className={styles.stage}>
           <CodeWindow filename="developer.ts" ariaLabel={t.hero.codeAria} heroPadding>
-            <div className={styles.line} style={lineStyle(0)}>
-              <span className={styles.k}>export const</span> <span className={styles.f}>developer</span> = {'{'}
-            </div>
-            <div className={styles.line} style={lineStyle(1)}>
-              {'  '}name: <span className={styles.s}>"Leonardo Prokopowiski"</span>,
-            </div>
-            <div className={styles.line} style={lineStyle(2)}>
-              {'  '}role: <span className={styles.s}>"Full-Stack Developer"</span>,
-            </div>
-            <div className={styles.line} style={lineStyle(3)}>
-              {'  '}company: <span className={styles.s}>"SPRO, an NTT DATA company"</span>,
-            </div>
-            <div className={styles.line} style={lineStyle(4)}>
-              {'  '}frontend: [<span className={styles.s}>"React"</span>, <span className={styles.s}>"JavaScript"</span>, <span className={styles.s}>"TypeScript"</span>],
-            </div>
-            <div className={styles.line} style={lineStyle(5)}>
-              {'  '}backend: [<span className={styles.s}>"Node.js"</span>, <span className={styles.s}>"Python"</span>, <span className={styles.s}>"Flask"</span>],
-            </div>
-            <div className={styles.line} style={lineStyle(6)}>
-              {'  '}databases: [<span className={styles.s}>"PostgreSQL"</span>, <span className={styles.s}>"MySQL"</span>, <span className={styles.s}>"SQLite"</span>],
-            </div>
-            <div className={styles.line} style={lineStyle(7)}>
-              {'  '}devops: [<span className={styles.s}>"Azure DevOps"</span>, <span className={styles.s}>"Docker"</span>, <span className={styles.s}>"Git"</span>],
-            </div>
-            <div className={styles.line} style={lineStyle(8)}>
-              {'}'} <span className={styles.k}>as const</span>;
-            </div>
-            <div className={styles.line} style={lineStyle(9)}>
-              {' '}
-            </div>
-            <div className={styles.line} style={lineStyle(10)}>
-              <span className={styles.c}>// always learning, always building</span>
-              <span className={styles.caret} />
-            </div>
+            {CODE_LINES.map((lineTokens, lineIdx) => {
+              const lineTotal = lineTokens.reduce((acc, t) => acc + t.text.length, 0);
+              const lineStart = globalOffset;
+              const lineEnd = lineStart + lineTotal;
+              globalOffset = lineEnd;
+
+              const hasStarted = typedChars > lineStart;
+              const isFinished = typedChars >= lineEnd;
+              const isCurrentlyTyping = hasStarted && !isFinished;
+              const isLastLineAndAllDone =
+                typedChars >= TOTAL_CHARS && lineIdx === CODE_LINES.length - 1;
+
+              let tokenOffset = lineStart;
+
+              return (
+                <div key={lineIdx} className={styles.line}>
+                  {hasStarted ? (
+                    <>
+                      {lineTokens.map((token, tIdx) => {
+                        const start = tokenOffset;
+                        const end = start + token.text.length;
+                        tokenOffset = end;
+
+                        if (typedChars <= start) return null;
+
+                        const visibleText =
+                          typedChars >= end ? token.text : token.text.slice(0, typedChars - start);
+
+                        return token.className ? (
+                          <span key={tIdx} className={token.className}>
+                            {visibleText}
+                          </span>
+                        ) : (
+                          <span key={tIdx}>{visibleText}</span>
+                        );
+                      })}
+                      {(isCurrentlyTyping || isLastLineAndAllDone) && (
+                        <span className={styles.caret} />
+                      )}
+                    </>
+                  ) : (
+                    <span style={{ opacity: 0 }} aria-hidden="true">
+                      {'\u00A0'}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
           </CodeWindow>
 
           {/* Floating tech icons with deep ambient floating animations */}

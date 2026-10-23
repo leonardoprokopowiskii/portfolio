@@ -25,7 +25,7 @@ export function Navbar({ scrolled }: NavbarProps) {
     <nav className={navClasses} aria-label="Main">
       <a className={styles.brand} href="#top" onClick={closeMenu}>
         <span className={styles.logo}>LP</span>
-        <span>Leonardo Prokopowiski</span>
+        <span className={styles.brandName}>Leonardo Prokopowiski</span>
       </a>
 
       <ul id="menu" className={styles.menu}>
