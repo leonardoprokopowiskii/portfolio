@@ -153,7 +153,30 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static semantic shell for search crawlers (Bingbot, Googlebot, AI LLMs) and instant LCP paint -->
+      <header style="padding: 96px 24px 28px; max-width: 1280px; margin: 0 auto; font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;">
+        <h1 style="font-size: clamp(1.85rem, 0.95rem + 2vw, 2.9rem); font-weight: 800; color: #0A1630; letter-spacing: -0.03em; margin: 0 0 18px; line-height: 1.1;">
+          Leonardo Prokopowiski – Full-Stack Developer
+        </h1>
+        <p style="font-size: 1.05rem; color: #4F5E7D; max-width: 36em; margin: 0 0 24px; line-height: 1.6; font-family: 'Inter', system-ui, -apple-system, sans-serif;">
+          Aplicações web modernas, APIs RESTful e soluções full-stack com React, TypeScript, Node.js e Python. Estudante de Engenharia de Software e Aprendiz na SPRO, an NTT DATA company.
+        </p>
+      </header>
+      <main style="max-width: 1280px; margin: 0 auto; padding: 0 24px; font-family: 'Inter', system-ui, -apple-system, sans-serif;">
+        <section style="margin-bottom: 40px;">
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: #0A1630; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', system-ui, sans-serif;">Projetos em Destaque</h2>
+          <article>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #1D4ED8; margin-bottom: 8px;">SPRO SIGAP – Plataforma Corporativa Full-Stack</h3>
+            <p style="color: #4F5E7D; line-height: 1.6;">Plataforma web de governança, automação e engenharia integrada ao Azure DevOps com React, Node.js, Python, Flask e PostgreSQL.</p>
+          </article>
+        </section>
+        <section>
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: #0A1630; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', system-ui, sans-serif;">Tecnologias</h2>
+          <p style="color: #4F5E7D; line-height: 1.6;">React, TypeScript, JavaScript, Node.js, Python, Flask, PostgreSQL, MySQL, SQLite, Docker, Azure DevOps, Git, REST APIs.</p>
+        </section>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
