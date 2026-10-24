@@ -237,6 +237,59 @@
   display: none;
 }
 
+.fldHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.optional {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.charCount {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.errorBox {
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  color: #991B1B;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.copyEmailBtn {
+  background: #FFFFFF;
+  border: 1.5px solid #DC2626;
+  color: #DC2626;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.copyEmailBtn:hover {
+  background: #DC2626;
+  color: #FFFFFF;
+}
+
+.botcheck {
+  display: none !important;
+}
+
 @media (max-width: 900px) {
   .cwrap {
     grid-template-columns: 1fr;

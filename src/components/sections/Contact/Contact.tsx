@@ -7,9 +7,22 @@ import { triggerConfetti } from '../../../utils/confetti';
 import styles from './Contact.module.css';
 
 export function Contact() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const [statusMessage, setStatusMessage] = useState('');
+  const [isError, setIsError] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [msgLength, setMsgLength] = useState(0);
   const [submitting, setSubmitting] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(socialLinks.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 3000);
+    } catch {
+      // Fallback
+    }
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,25 +35,47 @@ export function Contact() {
     const submitBtn = (form.querySelector('button[type="submit"]') as HTMLElement) || form;
     const data = new FormData(form);
     setSubmitting(true);
+    setIsError(false);
+    setStatusMessage('');
+
     try {
       const result = await sendContactMessage({
         name: String(data.get('name') || ''),
         email: String(data.get('email') || ''),
         subject: String(data.get('subject') || ''),
         message: String(data.get('message') || ''),
+        botcheck: Boolean(data.get('botcheck')),
       });
 
-      if (result.mode === 'api') {
+      if (result.ok) {
+        setIsError(false);
         setStatusMessage(t.contact.statusSent);
         triggerConfetti(submitBtn);
         form.reset();
+        setMsgLength(0);
       } else {
-        setStatusMessage(`${t.contact.statusMailto}${result.recipient}`);
+        setIsError(true);
+        setStatusMessage(
+          lang === 'pt'
+            ? 'Não foi possível enviar a mensagem automaticamente.'
+            : 'Could not send the message automatically.'
+        );
       }
+    } catch {
+      setIsError(true);
+      setStatusMessage(
+        lang === 'pt'
+          ? 'Erro de conexão ao enviar a mensagem.'
+          : 'Connection error while sending message.'
+      );
     } finally {
       setSubmitting(false);
     }
   };
+
+  const resumeHref = lang === 'pt' ? socialLinks.resumePathPt : socialLinks.resumePathEn;
+  const resumeDownloadName =
+    lang === 'pt' ? 'Curriculo_Leonardo_Prokopowiski.pdf' : 'Resume_Leonardo_Prokopowiski.pdf';
 
   return (
     <section id="contact">
@@ -94,8 +129,10 @@ export function Contact() {
 
             <a
               className={styles.resumeBtn}
-              href={socialLinks.resumePath}
-              download="Curriculo_Leonardo_Prokopowiski.pdf"
+              href={resumeHref}
+              download={resumeDownloadName}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -108,6 +145,16 @@ export function Contact() {
         </div>
 
         <form className={`${styles.form} rv`} style={{ '--d': '0.12s' } as CSSProperties} onSubmit={handleSubmit} noValidate>
+          {/* Honeypot Spam Protection */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            className={styles.botcheck}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+          />
+
           <h3 className={styles.formTitle}>{t.contact.formTitle}</h3>
 
           <div className={styles.row2}>
@@ -123,13 +170,25 @@ export function Contact() {
           </div>
 
           <div className={styles.fld}>
-            <label htmlFor="f-s">{t.contact.subjectLabel}</label>
-            <input id="f-s" name="subject" type="text" required />
+            <div className={styles.fldHeader}>
+              <label htmlFor="f-s">{t.contact.subjectLabel}</label>
+              <span className={styles.optional}>({lang === 'pt' ? 'opcional' : 'optional'})</span>
+            </div>
+            <input id="f-s" name="subject" type="text" />
           </div>
 
           <div className={styles.fld}>
-            <label htmlFor="f-m">{t.contact.messageLabel}</label>
-            <textarea id="f-m" name="message" required />
+            <div className={styles.fldHeader}>
+              <label htmlFor="f-m">{t.contact.messageLabel}</label>
+              <span className={styles.charCount}>{msgLength}/1500</span>
+            </div>
+            <textarea
+              id="f-m"
+              name="message"
+              required
+              maxLength={1500}
+              onChange={(e) => setMsgLength(e.target.value.length)}
+            />
           </div>
 
           <Button
@@ -141,9 +200,31 @@ export function Contact() {
             {submitting ? t.contact.sending : t.contact.sendButton}
           </Button>
 
-          <p className={styles.msg} role="status">
-            {statusMessage}
-          </p>
+          {statusMessage && !isError && (
+            <p className={styles.msg} role="status">
+              {statusMessage}
+            </p>
+          )}
+
+          {isError && (
+            <div className={styles.errorBox} role="alert">
+              <span>
+                {statusMessage}{' '}
+                {lang === 'pt'
+                  ? 'Você pode copiar o e-mail abaixo e entrar em contato direto:'
+                  : 'You can copy the email below to reach out directly:'}
+              </span>
+              <button
+                type="button"
+                className={styles.copyEmailBtn}
+                onClick={handleCopyEmail}
+              >
+                {copied
+                  ? (lang === 'pt' ? 'E-mail copiado! ✓' : 'Email copied! ✓')
+                  : (lang === 'pt' ? `Copiar ${socialLinks.email}` : `Copy ${socialLinks.email}`)}
+              </button>
+            </div>
+          )}
         </form>
       </div>
     </section>
