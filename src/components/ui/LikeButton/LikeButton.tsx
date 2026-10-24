@@ -17,32 +17,36 @@ const API_KEY = 'likes';
 
 export function LikeButton() {
   const { lang } = useLanguage();
-  const [likes, setLikes] = useState<number>(0);
-  const [hasLiked, setHasLiked] = useState<boolean>(false);
+  const [likes, setLikes] = useState<number>(() => {
+    try {
+      const cached = localStorage.getItem(STORAGE_KEY_CACHED_LIKES);
+      if (cached !== null) return parseInt(cached, 10) || 0;
+    } catch {
+      // ignore
+    }
+    return 0;
+  });
+
+  const [hasLiked, setHasLiked] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem(STORAGE_KEY_HAS_LIKED) === 'true';
+    } catch {
+      return false;
+    }
+  });
+
   const [bouncing, setBouncing] = useState(false);
   const [showInvite, setShowInvite] = useState(false);
   const [floatingHearts, setFloatingHearts] = useState<FloatingHeart[]>([]);
   const nextId = useRef(0);
 
-  // Load real global like count & user's liked status on mount
+  // Load real global like count & trigger invite bubble
   useEffect(() => {
-    let alreadyLiked = false;
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY_HAS_LIKED);
-      if (stored === 'true') {
-        setHasLiked(true);
-        alreadyLiked = true;
-      }
-      const cached = localStorage.getItem(STORAGE_KEY_CACHED_LIKES);
-      if (cached !== null) {
-        setLikes(parseInt(cached, 10) || 0);
-      }
-    } catch {
-      // ignore
-    }
+    let timer: number | undefined;
+    let autoHideTimer: number | undefined;
 
     // Friendly invitation speech bubble after 2.5s if user hasn't liked yet
-    if (!alreadyLiked) {
+    if (!hasLiked) {
       let isDismissed = false;
       try {
         isDismissed = sessionStorage.getItem(STORAGE_KEY_INVITE_DISMISSED) === 'true';
@@ -51,23 +55,18 @@ export function LikeButton() {
       }
 
       if (!isDismissed) {
-        const timer = window.setTimeout(() => {
+        timer = window.setTimeout(() => {
           setShowInvite(true);
         }, 2500);
 
         // Auto-fade bubble after 6s if not interacted
-        const autoHideTimer = window.setTimeout(() => {
+        autoHideTimer = window.setTimeout(() => {
           setShowInvite(false);
         }, 8500);
-
-        return () => {
-          window.clearTimeout(timer);
-          window.clearTimeout(autoHideTimer);
-        };
       }
     }
 
-    // Fetch real global likes from cloud API (starts at 0 if no likes yet)
+    // ALWAYS fetch real global likes from cloud API for EVERY visitor
     let isMounted = true;
     fetch(`${API_BASE}/get/${API_NAMESPACE}/${API_KEY}`)
       .then((res) => {
@@ -90,13 +89,15 @@ export function LikeButton() {
         }
       })
       .catch(() => {
-        // Fallback gracefully
+        // Retain cached count gracefully
       });
 
     return () => {
       isMounted = false;
+      if (timer) window.clearTimeout(timer);
+      if (autoHideTimer) window.clearTimeout(autoHideTimer);
     };
-  }, []);
+  }, [hasLiked]);
 
   const dismissInvite = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
