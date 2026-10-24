@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#1D4ED8" />
     <title>Leonardo Prokopowiski - Full-Stack Developer</title>
     <meta
       name="description"
       content="Portfólio de Leonardo Prokopowiski, desenvolvedor full-stack focado em React, TypeScript, Node.js, Python, Flask e APIs REST em Curitiba, Brasil."
     />
-    <meta
-      name="keywords"
-      content="Leonardo Prokopowiski, Leo Prokopowiski, prokopowiski, Desenvolvedor Full-Stack, Full-Stack Developer, React, TypeScript, Node.js, Python, Flask, Curitiba, SPRO, NTT DATA, Engenharia de Software"
-    />
     <meta name="author" content="Leonardo Prokopowiski" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://prokopowiski.dev/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://prokopowiski.dev/" />
+    <link rel="alternate" hreflang="en" href="https://prokopowiski.dev/" />
+    <link rel="alternate" hreflang="x-default" href="https://prokopowiski.dev/" />
 
     <!-- Open Graph / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website" />
@@ -31,8 +31,8 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content="Leonardo Prokopowiski – Full-Stack Developer Portfolio" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -41,10 +41,15 @@
       name="twitter:description"
       content="Aplicações web modernas, APIs RESTful e soluções full-stack com React, TypeScript, Node.js e Python. Estudante de Engenharia de Software e Aprendiz na SPRO, an NTT DATA company."
     />
-
     <meta name="twitter:image" content="https://prokopowiski.dev/og-image.png" />
 
+    <!-- Favicon & PWA Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -64,10 +69,12 @@
           "@type": "Organization",
           "name": "SPRO, an NTT DATA company"
         },
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "UniCesumar"
-        },
+        "affiliation": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "UniCesumar"
+          }
+        ],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Curitiba",
@@ -92,8 +99,7 @@
         ],
         "sameAs": [
           "https://github.com/leonardoprokopowiskii",
-          "https://linkedin.com/in/leoprokopowiski",
-          "https://instagram.com/leoprokopowiski"
+          "https://linkedin.com/in/leoprokopowiski"
         ]
       }
     </script>

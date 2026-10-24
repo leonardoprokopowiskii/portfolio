@@ -1,0 +1,21 @@
+{
+  "name": "Leonardo Prokopowiski - Full-Stack Developer",
+  "short_name": "Leonardo Dev",
+  "description": "Portfólio de Leonardo Prokopowiski, desenvolvedor full-stack focado em React, TypeScript, Node.js e Python.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F1F5FB",
+  "theme_color": "#1D4ED8",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
