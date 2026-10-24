@@ -89,7 +89,7 @@ const TOTAL_CHARS = CODE_LINES.reduce(
 );
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const [typedChars, setTypedChars] = useState(0);
 
   useEffect(() => {
@@ -167,8 +167,8 @@ export function Hero() {
             </Button>
             <Button
               variant="secondary"
-              href={socialLinks.resumePath}
-              download="Curriculo_Leonardo_Prokopowiski.pdf"
+              href={lang === 'pt' ? socialLinks.resumePathPt : socialLinks.resumePathEn}
+              download={lang === 'pt' ? 'Curriculo_Leonardo_Prokopowiski.pdf' : 'Resume_Leonardo_Prokopowiski.pdf'}
             >
               {t.hero.downloadResume}
             </Button>

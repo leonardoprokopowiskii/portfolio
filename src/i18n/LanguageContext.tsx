@@ -17,6 +17,12 @@ function getInitialLanguage(): Language {
   } catch {
     // ignore storage errors
   }
+
+  // Detect browser language preference
+  if (typeof navigator !== 'undefined' && navigator.language) {
+    return navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en';
+  }
+
   return 'en';
 }
 
