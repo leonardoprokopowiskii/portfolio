@@ -1,0 +1,30 @@
+# Leonardo Prokopowiski - Full-Stack Developer
+
+> Desenvolvedor Full-Stack especializado em aplicações web modernas, APIs RESTful e soluções escaláveis com React, TypeScript, Node.js e Python.
+
+## Sobre / About
+- **Nome:** Leonardo Prokopowiski
+- **Cargo Atual:** Aprendiz na SPRO, an NTT DATA company (Curitiba, PR, Brasil)
+- **Formação:** Estudante de Engenharia de Software na UniCesumar
+- **Foco:** Desenvolvimento full-stack, interfaces de alta performance, microinterações fluidas e backends estruturados.
+- **Idiomas:** Português (Nativo), Inglês (Intermediário / Técnico).
+
+## Stack Tecnológica / Technical Skills
+- **Frontend:** React, TypeScript, JavaScript (ES6+), HTML5, CSS3 / CSS Modules, Vite
+- **Backend:** Node.js, Express, Python, Flask, REST APIs, Prisma ORM
+- **Bancos de Dados:** PostgreSQL, MySQL, SQLite
+- **DevOps & Ferramentas:** Git, GitHub, Docker, Azure DevOps, Linux, Vercel
+- **Metodologias:** Metodologias Ágeis, Scrum, Kanban, Clean Code
+
+## Projetos Destacados / Featured Projects
+- **Projex:** Sistema de gerenciamento de projetos e tarefas corporativas com React, Node.js, Express e PostgreSQL.
+- **Sabor & Arte:** Plataforma web comercial para confeitaria artesanal com vitrine dinâmica, catálogo e integração de pedidos via WhatsApp.
+- **Book Tracker:** Aplicação web para organização, metas e controle de leitura pessoal desenvolvida com Python, Flask e SQLite.
+
+## Links Oficiais & Contato / Contact & Links
+- **Website:** https://prokopowiski.dev/
+- **GitHub:** https://github.com/leonardoprokopowiskii
+- **LinkedIn:** https://linkedin.com/in/leoprokopowiski
+- **Email:** contato@prokopowiski.dev
+- **Currículo (PT):** https://prokopowiski.dev/Curriculo_Leonardo_Prokopowiski.pdf
+- **Resume (EN):** https://prokopowiski.dev/Resume_Leonardo_Prokopowiski.pdf

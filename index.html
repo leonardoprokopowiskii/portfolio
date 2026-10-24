@@ -16,6 +16,7 @@
     <link rel="alternate" hreflang="pt-BR" href="https://prokopowiski.dev/" />
     <link rel="alternate" hreflang="en" href="https://prokopowiski.dev/" />
     <link rel="alternate" hreflang="x-default" href="https://prokopowiski.dev/" />
+    <link rel="alternate" type="text/plain" href="https://prokopowiski.dev/llms.txt" title="LLMs.txt" />
 
     <!-- Open Graph / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website" />
@@ -50,56 +51,103 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Google Fonts Preconnect & Asynchronous Non-Blocking Load -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      />
+    </noscript>
 
-    <!-- Structured Data (Google Knowledge Graph / Rich Results) -->
+    <!-- Structured Data (Google Knowledge Graph & AI Engine Semantic Schema) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Leonardo Prokopowiski",
-        "url": "https://prokopowiski.dev/",
-        "jobTitle": "Full-Stack Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "SPRO, an NTT DATA company"
-        },
-        "affiliation": [
+        "@graph": [
           {
-            "@type": "CollegeOrUniversity",
-            "name": "UniCesumar"
+            "@type": "WebSite",
+            "@id": "https://prokopowiski.dev/#website",
+            "url": "https://prokopowiski.dev/",
+            "name": "Leonardo Prokopowiski - Full-Stack Developer",
+            "description": "Portfólio de Leonardo Prokopowiski, desenvolvedor full-stack focado em React, TypeScript, Node.js, Python, Flask e APIs REST em Curitiba, Brasil.",
+            "publisher": {
+              "@id": "https://prokopowiski.dev/#person"
+            },
+            "inLanguage": ["pt-BR", "en"]
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://prokopowiski.dev/#profilepage",
+            "url": "https://prokopowiski.dev/",
+            "name": "Leonardo Prokopowiski – Profile",
+            "isPartOf": {
+              "@id": "https://prokopowiski.dev/#website"
+            },
+            "mainEntity": {
+              "@id": "https://prokopowiski.dev/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://prokopowiski.dev/#person",
+            "name": "Leonardo Prokopowiski",
+            "alternateName": "Leo Prokopowiski",
+            "url": "https://prokopowiski.dev/",
+            "image": "https://prokopowiski.dev/og-image.png",
+            "jobTitle": "Full-Stack Developer",
+            "description": "Desenvolvedor full-stack especializado em React, TypeScript, Node.js e Python.",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "SPRO, an NTT DATA company"
+            },
+            "affiliation": [
+              {
+                "@type": "CollegeOrUniversity",
+                "name": "UniCesumar"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Curitiba",
+              "addressRegion": "PR",
+              "addressCountry": "BR"
+            },
+            "knowsAbout": [
+              "JavaScript",
+              "TypeScript",
+              "React",
+              "Node.js",
+              "Express",
+              "Prisma",
+              "Python",
+              "Flask",
+              "REST APIs",
+              "PostgreSQL",
+              "MySQL",
+              "SQLite",
+              "Docker",
+              "Azure DevOps",
+              "Git",
+              "Vite"
+            ],
+            "sameAs": [
+              "https://github.com/leonardoprokopowiskii",
+              "https://linkedin.com/in/leoprokopowiski"
+            ]
           }
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Curitiba",
-          "addressRegion": "PR",
-          "addressCountry": "BR"
-        },
-        "knowsAbout": [
-          "JavaScript",
-          "TypeScript",
-          "React",
-          "Node.js",
-          "Express",
-          "Prisma",
-          "Python",
-          "Flask",
-          "REST APIs",
-          "PostgreSQL",
-          "MySQL",
-          "SQLite",
-          "Docker",
-          "Azure DevOps"
-        ],
-        "sameAs": [
-          "https://github.com/leonardoprokopowiskii",
-          "https://linkedin.com/in/leoprokopowiski"
         ]
       }
     </script>
