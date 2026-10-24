@@ -10,6 +10,7 @@ interface FloatingHeart {
 
 const STORAGE_KEY_HAS_LIKED = 'portfolio_has_liked';
 const STORAGE_KEY_CACHED_LIKES = 'portfolio_cached_likes';
+const STORAGE_KEY_INVITE_DISMISSED = 'portfolio_like_invite_dismissed';
 const API_BASE = 'https://abacus.jasoncameron.dev';
 const API_NAMESPACE = 'prokopowiski-dev';
 const API_KEY = 'likes';
@@ -19,15 +20,18 @@ export function LikeButton() {
   const [likes, setLikes] = useState<number>(0);
   const [hasLiked, setHasLiked] = useState<boolean>(false);
   const [bouncing, setBouncing] = useState(false);
+  const [showInvite, setShowInvite] = useState(false);
   const [floatingHearts, setFloatingHearts] = useState<FloatingHeart[]>([]);
   const nextId = useRef(0);
 
   // Load real global like count & user's liked status on mount
   useEffect(() => {
+    let alreadyLiked = false;
     try {
       const stored = localStorage.getItem(STORAGE_KEY_HAS_LIKED);
       if (stored === 'true') {
         setHasLiked(true);
+        alreadyLiked = true;
       }
       const cached = localStorage.getItem(STORAGE_KEY_CACHED_LIKES);
       if (cached !== null) {
@@ -35,6 +39,32 @@ export function LikeButton() {
       }
     } catch {
       // ignore
+    }
+
+    // Friendly invitation speech bubble after 2.5s if user hasn't liked yet
+    if (!alreadyLiked) {
+      let isDismissed = false;
+      try {
+        isDismissed = sessionStorage.getItem(STORAGE_KEY_INVITE_DISMISSED) === 'true';
+      } catch {
+        // ignore
+      }
+
+      if (!isDismissed) {
+        const timer = window.setTimeout(() => {
+          setShowInvite(true);
+        }, 2500);
+
+        // Auto-fade bubble after 6s if not interacted
+        const autoHideTimer = window.setTimeout(() => {
+          setShowInvite(false);
+        }, 8500);
+
+        return () => {
+          window.clearTimeout(timer);
+          window.clearTimeout(autoHideTimer);
+        };
+      }
     }
 
     // Fetch real global likes from cloud API (starts at 0 if no likes yet)
@@ -68,7 +98,19 @@ export function LikeButton() {
     };
   }, []);
 
+  const dismissInvite = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    setShowInvite(false);
+    try {
+      sessionStorage.setItem(STORAGE_KEY_INVITE_DISMISSED, 'true');
+    } catch {
+      // ignore
+    }
+  };
+
   const handleLike = async () => {
+    dismissInvite();
+
     if (hasLiked) {
       // 1 like per person: already liked, trigger gentle feedback wobble
       setBouncing(true);
@@ -98,7 +140,7 @@ export function LikeButton() {
       }
     }
 
-    // Spawn floating heart particle
+    // Spawn floating heart particles
     const heartId = nextId.current++;
     const randomOffset = (Math.random() - 0.5) * 36;
     const randomRot = (Math.random() - 0.5) * 30;
@@ -146,6 +188,23 @@ export function LikeButton() {
 
   return (
     <div className={styles.likeWidget}>
+      {/* Friendly Speech Bubble invitation */}
+      {showInvite && !hasLiked && (
+        <div className={styles.speechBubble} role="tooltip">
+          <span className={styles.bubbleText} onClick={handleLike}>
+            {lang === 'pt' ? 'Gostou do portfólio? Deixe seu like!' : 'Enjoying the portfolio? Leave a like!'} ❤️
+          </span>
+          <button
+            type="button"
+            className={styles.closeBubbleBtn}
+            onClick={dismissInvite}
+            aria-label={lang === 'pt' ? 'Fechar dica' : 'Dismiss tip'}
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       {/* Floating particles container */}
       <div className={styles.particlesWrap} aria-hidden="true">
         {floatingHearts.map((heart) => (
@@ -190,6 +249,16 @@ export function LikeButton() {
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
           </svg>
         </span>
+        <span className={styles.label}>
+          {hasLiked
+            ? lang === 'pt'
+              ? 'Curtiu!'
+              : 'Liked!'
+            : lang === 'pt'
+            ? 'Curtir'
+            : 'Like'}
+        </span>
+        <span className={styles.sep} aria-hidden="true">·</span>
         <span className={styles.count}>{likes}</span>
       </button>
     </div>
