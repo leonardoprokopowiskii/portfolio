@@ -11,6 +11,7 @@ import { Experience } from './components/sections/Experience/Experience';
 import { Stack } from './components/sections/Stack/Stack';
 import { Contact } from './components/sections/Contact/Contact';
 import { Footer } from './components/layout/Footer/Footer';
+import { LikeButton } from './components/ui/LikeButton/LikeButton';
 
 function PortfolioContent() {
   const { progress, scrolled } = useScrollProgress();
@@ -27,6 +28,7 @@ function PortfolioContent() {
         <Stack />
         <Contact />
       </main>
+      <LikeButton />
       <Footer />
       <Analytics />
       <SpeedInsights />
