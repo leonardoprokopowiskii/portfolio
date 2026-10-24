@@ -45,7 +45,7 @@ export function LikeButton() {
     let timer: number | undefined;
     let autoHideTimer: number | undefined;
 
-    // Friendly invitation speech bubble after 2.5s if user hasn't liked yet
+    // Friendly invitation speech bubble after 3s if user hasn't liked yet
     if (!hasLiked) {
       let isDismissed = false;
       try {
@@ -57,12 +57,12 @@ export function LikeButton() {
       if (!isDismissed) {
         timer = window.setTimeout(() => {
           setShowInvite(true);
-        }, 2500);
+        }, 3000);
 
-        // Auto-fade bubble after 6s if not interacted
+        // Auto-fade bubble after 6s of display (3s + 6s = 9s total)
         autoHideTimer = window.setTimeout(() => {
           setShowInvite(false);
-        }, 8500);
+        }, 9000);
       }
     }
 
