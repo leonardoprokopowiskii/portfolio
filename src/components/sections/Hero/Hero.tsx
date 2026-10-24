@@ -111,7 +111,7 @@ export function Hero() {
 
         const progress = current / TOTAL_CHARS;
         // Starts snappy at ~13ms and gently decelerates up to ~22ms (subtle, natural slowdown without dragging)
-        const delay = 13 + Math.pow(progress, 1.2) * 9;
+        const delay = 24 + Math.pow(progress, 1.2) * 12;
 
         timer = window.setTimeout(typeNext, delay);
       }
