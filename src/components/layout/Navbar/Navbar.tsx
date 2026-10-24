@@ -1,15 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { socialLinks } from '../../../data/stack';
 import styles from './Navbar.module.css';
 
-interface NavbarProps {
-  scrolled: boolean;
-}
-
-export function Navbar({ scrolled }: NavbarProps) {
+export function Navbar() {
   const { lang, setLang, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const isScrolled = (window.scrollY || 0) > 16;
+          setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
