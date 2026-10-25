@@ -78,9 +78,9 @@
 /* Smooth, luxurious scroll reveal & fade-away */
 .rv {
   opacity: 0;
-  transform: translateY(18px) translateZ(0);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0s,
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0s;
+  transform: translateY(20px) translateZ(0);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0s,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0s;
   will-change: opacity, transform;
   backface-visibility: hidden;
 }
@@ -88,20 +88,20 @@
 .rv.in {
   opacity: 1;
   transform: translateY(0) translateZ(0);
-  transition: opacity 1.05s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s),
-    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s);
+  transition: opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s),
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s);
 }
 
 @media (max-width: 768px) {
   .rv {
-    transform: translateY(14px) translateZ(0);
-    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0s,
-      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0s;
+    transform: translateY(16px) translateZ(0);
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0s,
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0s;
   }
   .rv.in {
     transform: translateY(0) translateZ(0);
-    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s),
-      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s);
   }
 }
 
