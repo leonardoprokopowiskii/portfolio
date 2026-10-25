@@ -14,13 +14,14 @@ export function useRevealOnScroll() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in');
-            observer.unobserve(entry.target);
+          } else {
+            entry.target.classList.remove('in');
           }
         });
       },
       {
-        threshold: 0.08,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.03,
+        rootMargin: '30px 0px -30px 0px',
       }
     );
 

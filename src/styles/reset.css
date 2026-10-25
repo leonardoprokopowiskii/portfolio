@@ -3,6 +3,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html.lenis,
+html.lenis body {
+  scroll-behavior: auto !important;
+}
+
 *,
 *::before,
 *::after {

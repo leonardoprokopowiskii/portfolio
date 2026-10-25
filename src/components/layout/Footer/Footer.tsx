@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.glow} aria-hidden="true" />
-      <div className={`wrap ${styles.inner}`}>
+      <div className={`wrap ${styles.inner} rv`}>
         <p className={styles.text}>{t.footer.text}</p>
       </div>
     </footer>
