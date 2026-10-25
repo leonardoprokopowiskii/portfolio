@@ -13,6 +13,11 @@ interface CodeToken {
 
 type CodeLine = CodeToken[];
 
+const COMMENT_PART_1 = '// always learning,';
+const COMMENT_PART_2 = ' always building';
+const COMMENT_PART_3 = '!';
+const COMMENT_FULL = `${COMMENT_PART_1}${COMMENT_PART_2}${COMMENT_PART_3}`;
+
 const CODE_LINES: CodeLine[] = [
   [
     { text: 'export const ', className: styles.k },
@@ -79,55 +84,63 @@ const CODE_LINES: CodeLine[] = [
     { text: ' ' },
   ],
   [
-    { text: '// always learning, always building', className: styles.c },
+    { text: COMMENT_FULL, className: styles.c },
   ],
 ];
 
-const TOTAL_CHARS = CODE_LINES.reduce(
-  (sum, line) => sum + line.reduce((lSum, token) => lSum + token.text.length, 0),
-  0
-);
-
 export function Hero() {
   const { lang, t } = useLanguage();
-  const [typedChars, setTypedChars] = useState(0);
+  const [commentChars, setCommentChars] = useState(0);
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setTypedChars(TOTAL_CHARS);
+      setCommentChars(COMMENT_FULL.length);
       return;
     }
 
     let timer: number | undefined;
 
-    const startTimer = window.setTimeout(() => {
-      let current = 0;
+    // Wait for the window entrance to settle smoothly
+    timer = window.setTimeout(() => {
+      let typed = 0;
 
-      function typeNext() {
-        if (current >= TOTAL_CHARS) return;
-
-        current += 1;
-        setTypedChars(current);
-
-        const progress = current / TOTAL_CHARS;
-        // Starts snappy at ~13ms and gently decelerates up to ~22ms (subtle, natural slowdown without dragging)
-        const delay = 24 + Math.pow(progress, 1.2) * 12;
-
-        timer = window.setTimeout(typeNext, delay);
+      function typeComment() {
+        if (typed < COMMENT_PART_1.length) {
+          // 1. Type "// always learning," slowly (~80ms per char)
+          typed += 1;
+          setCommentChars(typed);
+          if (typed === COMMENT_PART_1.length) {
+            // Pause 1: ~850ms at the comma
+            timer = window.setTimeout(typeComment, 850);
+          } else {
+            timer = window.setTimeout(typeComment, 80);
+          }
+        } else if (typed < COMMENT_PART_1.length + COMMENT_PART_2.length) {
+          // 2. Type " always building" slowly (~80ms per char)
+          typed += 1;
+          setCommentChars(typed);
+          if (typed === COMMENT_PART_1.length + COMMENT_PART_2.length) {
+            // Pause 2: ~800ms before exclamation mark
+            timer = window.setTimeout(typeComment, 800);
+          } else {
+            timer = window.setTimeout(typeComment, 80);
+          }
+        } else if (typed < COMMENT_FULL.length) {
+          // 3. Type the exclamation mark "!"
+          typed += 1;
+          setCommentChars(typed);
+        }
       }
 
-      typeNext();
-    }, 350);
+      typeComment();
+    }, 650);
 
     return () => {
-      window.clearTimeout(startTimer);
       if (timer) window.clearTimeout(timer);
     };
   }, []);
 
   const titleLineStyle = (n: number): CSSProperties => ({ '--n': n } as CSSProperties);
-
-  let globalOffset = 0;
 
   return (
     <div className={styles.heroWrap} id="top">
@@ -178,49 +191,31 @@ export function Hero() {
         <div className={styles.stage}>
           <CodeWindow filename="developer.ts" ariaLabel={t.hero.codeAria} heroPadding>
             {CODE_LINES.map((lineTokens, lineIdx) => {
-              const lineTotal = lineTokens.reduce((acc, t) => acc + t.text.length, 0);
-              const lineStart = globalOffset;
-              const lineEnd = lineStart + lineTotal;
-              globalOffset = lineEnd;
+              const isLastLine = lineIdx === CODE_LINES.length - 1;
 
-              const hasStarted = typedChars > lineStart;
-              const isFinished = typedChars >= lineEnd;
-              const isCurrentlyTyping = hasStarted && !isFinished;
-              const isLastLineAndAllDone =
-                typedChars >= TOTAL_CHARS && lineIdx === CODE_LINES.length - 1;
-
-              let tokenOffset = lineStart;
+              if (isLastLine) {
+                return (
+                  <div key={lineIdx} className={styles.line}>
+                    {commentChars > 0 && (
+                      <span className={styles.c}>
+                        {COMMENT_FULL.slice(0, commentChars)}
+                      </span>
+                    )}
+                    <span className={styles.caret} />
+                  </div>
+                );
+              }
 
               return (
-                <div key={lineIdx} className={styles.line}>
-                  {hasStarted ? (
-                    <>
-                      {lineTokens.map((token, tIdx) => {
-                        const start = tokenOffset;
-                        const end = start + token.text.length;
-                        tokenOffset = end;
-
-                        if (typedChars <= start) return null;
-
-                        const visibleText =
-                          typedChars >= end ? token.text : token.text.slice(0, typedChars - start);
-
-                        return token.className ? (
-                          <span key={tIdx} className={token.className}>
-                            {visibleText}
-                          </span>
-                        ) : (
-                          <span key={tIdx}>{visibleText}</span>
-                        );
-                      })}
-                      {(isCurrentlyTyping || isLastLineAndAllDone) && (
-                        <span className={styles.caret} />
-                      )}
-                    </>
-                  ) : (
-                    <span style={{ opacity: 0 }} aria-hidden="true">
-                      {'\u00A0'}
-                    </span>
+                <div key={lineIdx} className={styles.codeLine}>
+                  {lineTokens.map((token, tIdx) =>
+                    token.className ? (
+                      <span key={tIdx} className={token.className}>
+                        {token.text}
+                      </span>
+                    ) : (
+                      <span key={tIdx}>{token.text}</span>
+                    )
                   )}
                 </div>
               );
