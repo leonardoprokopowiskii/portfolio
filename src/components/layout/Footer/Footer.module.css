@@ -1,6 +1,62 @@
 .footer {
-  padding: 40px 0 56px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 64px;
+  padding: 48px 0 64px;
   color: var(--muted);
   text-align: center;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
+  background: radial-gradient(
+    65% 140px at 50% 0%,
+    rgba(37, 99, 235, 0.08) 0%,
+    rgba(14, 165, 233, 0.03) 55%,
+    transparent 85%
+  );
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(29, 78, 216, 0.15) 20%,
+    rgba(14, 165, 233, 0.38) 50%,
+    rgba(34, 211, 238, 0.15) 80%,
+    transparent 100%
+  );
+}
+
+.glow {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(600px, 90vw);
+  height: 100px;
+  background: radial-gradient(closest-side, rgba(37, 99, 235, 0.16), transparent);
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.text {
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+
+.text:hover {
+  color: var(--ink);
 }
