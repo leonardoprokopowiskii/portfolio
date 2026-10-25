@@ -73,7 +73,7 @@ export const translations: Record<Language, Translations> = {
       h1Line1: 'Olá, sou o Leonardo.',
       h1Line2: 'Aplicações web, APIs e',
       h1Line3: 'soluções Full-Stack.',
-      lead: 'Estudante de Engenharia de Software em Curitiba, Brasil. Construo aplicações web modernas, APIs RESTful e automações escaláveis com React, TypeScript, Node.js e Python.',
+      lead: 'Estudante de Engenharia de Software em Curitiba, Brasil. Construo aplicações web modernas e escaláveis, APIs RESTful e automações com React, TypeScript, Node.js e Python.',
       seeProjects: 'Ver meus projetos',
       getInTouch: 'Fale comigo',
       downloadResume: 'Baixar currículo',
