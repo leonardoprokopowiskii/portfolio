@@ -77,7 +77,7 @@ export const translations: Record<Language, Translations> = {
       seeProjects: 'Ver meus projetos',
       getInTouch: 'Fale comigo',
       downloadResume: 'Baixar currículo',
-      codeAria: 'Código TypeScript descrevendo Leonardo: desenvolvedor backend com Python, Flask, Node.js e PostgreSQL',
+      codeAria: 'Código Python descrevendo Leonardo: desenvolvedor backend com Python, Flask, Node.js e PostgreSQL',
     },
     projects: {
       title: 'Projetos',
@@ -136,7 +136,7 @@ export const translations: Record<Language, Translations> = {
       seeProjects: 'See my projects',
       getInTouch: 'Get in touch',
       downloadResume: 'Download resume',
-      codeAria: 'TypeScript code describing Leonardo: backend developer working with Python, Flask, Node.js and PostgreSQL',
+      codeAria: 'Python code describing Leonardo: backend developer working with Python, Flask, Node.js and PostgreSQL',
     },
     projects: {
       title: 'Projects',
