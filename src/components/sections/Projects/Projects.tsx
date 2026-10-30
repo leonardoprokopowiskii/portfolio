@@ -2,27 +2,47 @@ import { useLanguage } from '../../../i18n/LanguageContext';
 import { featuredProject, cliProjects } from '../../../data/projects';
 import { Card } from '../../ui/Card/Card';
 import { CodeWindow } from '../../ui/CodeWindow/CodeWindow';
+import { Dual, tBoth } from '../../ui/Dual/Dual';
 import styles from './Projects.module.css';
 
 export function Projects() {
-  const { lang, t } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <section id="projects">
       <h2 className="rv">{t.projects.title}</h2>
-      <p className="sub rv">{t.projects.subtitle}</p>
+      <p className="sub rv">
+        <Dual values={tBoth((x) => x.projects.subtitle)} />
+      </p>
 
       <div className={`grid ${styles.projectGrid}`}>
         <Card className={styles.fullSpan}>
-          <span className={styles.tag}>{t.projects.workTag}</span>
+          <span className={styles.tag}>
+            <Dual values={tBoth((x) => x.projects.workTag)} />
+          </span>
           <h3 className={styles.cardTitle}>{featuredProject.title}</h3>
-          <p className={styles.cardDesc}>{featuredProject.description[lang]}</p>
+          <p className={styles.cardDesc}>
+            <Dual values={featuredProject.description} />
+          </p>
 
           <ul className={styles.feat}>
             {featuredProject.features.map((feat) => (
               <li key={feat.bold.en}>
-                <span>
-                  <b>{feat.bold[lang]}</b> {feat.text[lang]}
+                <span className={styles.featText}>
+                  <Dual
+                    values={{
+                      pt: (
+                        <>
+                          <b>{feat.bold.pt}</b> {feat.text.pt}
+                        </>
+                      ),
+                      en: (
+                        <>
+                          <b>{feat.bold.en}</b> {feat.text.en}
+                        </>
+                      ),
+                    }}
+                  />
                 </span>
               </li>
             ))}
@@ -34,14 +54,18 @@ export function Projects() {
             ))}
           </div>
 
-          <small className={styles.note}>{t.projects.internalNote}</small>
+          <small className={styles.note}>
+            <Dual values={tBoth((x) => x.projects.internalNote)} />
+          </small>
         </Card>
 
         {cliProjects.map((project) => (
           <Card key={project.id} className={styles.projectCard} delay={project.delay}>
             <span className={styles.tag}>{project.tag}</span>
             <h3 className={styles.cardTitle}>{project.title}</h3>
-            <p className={styles.cardDesc}>{project.description[lang]}</p>
+            <p className={styles.cardDesc}>
+              <Dual values={project.description} />
+            </p>
 
             <CodeWindow filename={project.filename} flat>
               {project.lines.map((line, idx) => (

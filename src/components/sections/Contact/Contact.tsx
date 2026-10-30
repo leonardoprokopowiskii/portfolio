@@ -3,6 +3,7 @@ import { useLanguage } from '../../../i18n/LanguageContext';
 import { socialLinks } from '../../../data/stack';
 import { sendContactMessage } from '../../../services/contactService';
 import { Button } from '../../ui/Button/Button';
+import { Dual, tBoth } from '../../ui/Dual/Dual';
 import { triggerConfetti } from '../../../utils/confetti';
 import styles from './Contact.module.css';
 
@@ -81,8 +82,12 @@ export function Contact() {
     <section id="contact">
       <div className={styles.cwrap}>
         <div className={`${styles.cta} rv`}>
-          <h2>{t.contact.ctaTitle}</h2>
-          <p className={styles.ctaSub}>{t.contact.ctaSub}</p>
+          <h2>
+            <Dual values={tBoth((x) => x.contact.ctaTitle)} />
+          </h2>
+          <p className={styles.ctaSub}>
+            <Dual values={tBoth((x) => x.contact.ctaSub)} />
+          </p>
 
           <div className={styles.actions}>
             <div className={styles.socials} role="group" aria-label="Social links">

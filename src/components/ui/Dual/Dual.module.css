@@ -1,0 +1,14 @@
+.dual {
+  display: grid;
+}
+
+.dual > span {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.off {
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}

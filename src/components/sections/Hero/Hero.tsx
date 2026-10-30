@@ -3,6 +3,7 @@ import { useLanguage } from '../../../i18n/LanguageContext';
 import { socialLinks } from '../../../data/stack';
 import { Button } from '../../ui/Button/Button';
 import { CodeWindow } from '../../ui/CodeWindow/CodeWindow';
+import { Dual, tBoth } from '../../ui/Dual/Dual';
 import { TechMarquee } from '../../ui/TechMarquee/TechMarquee';
 import styles from './Hero.module.css';
 
@@ -31,7 +32,7 @@ const CODE_LINES: CodeLine[] = [
   ],
   [
     { text: '  role: ' },
-    { text: '"Full-Stack Developer"', className: styles.s },
+    { text: '"Python Backend Developer"', className: styles.s },
     { text: ',' },
   ],
   [
@@ -40,28 +41,19 @@ const CODE_LINES: CodeLine[] = [
     { text: ',' },
   ],
   [
-    { text: '  frontend: [' },
-    { text: '"React"', className: styles.s },
-    { text: ', ' },
-    { text: '"JavaScript"', className: styles.s },
-    { text: ', ' },
-    { text: '"TypeScript"', className: styles.s },
-    { text: '],' },
-  ],
-  [
     { text: '  backend: [' },
-    { text: '"Node.js"', className: styles.s },
-    { text: ', ' },
     { text: '"Python"', className: styles.s },
     { text: ', ' },
     { text: '"Flask"', className: styles.s },
+    { text: ', ' },
+    { text: '"FastAPI"', className: styles.s },
     { text: '],' },
   ],
   [
     { text: '  databases: [' },
     { text: '"PostgreSQL"', className: styles.s },
     { text: ', ' },
-    { text: '"MySQL"', className: styles.s },
+    { text: '"MongoDB"', className: styles.s },
     { text: ', ' },
     { text: '"SQLite"', className: styles.s },
     { text: '],' },
@@ -73,6 +65,13 @@ const CODE_LINES: CodeLine[] = [
     { text: '"Docker"', className: styles.s },
     { text: ', ' },
     { text: '"Git"', className: styles.s },
+    { text: '],' },
+  ],
+  [
+    { text: '  frontend: [' },
+    { text: '"React"', className: styles.s },
+    { text: ', ' },
+    { text: '"JavaScript"', className: styles.s },
     { text: '],' },
   ],
   [
@@ -169,7 +168,9 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className={styles.lead}>{t.hero.lead}</p>
+          <p className={styles.lead}>
+            <Dual values={tBoth((x) => x.hero.lead)} />
+          </p>
 
           <div className={styles.btns}>
             <Button variant="primary" href="#projects">
