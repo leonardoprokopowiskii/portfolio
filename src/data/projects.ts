@@ -34,8 +34,8 @@ export const featuredProject: FeaturedProject = {
   id: 'spro-sigap',
   title: 'SPRO SIGAP',
   description: {
-    pt: 'Plataforma web full-stack corporativa de governança, automação e engenharia de produto integrada ao Azure DevOps. Centraliza interfaces interativas, indicadores executivos, gestão de releases, capacitação interna e automações operacionais para PMs, POs, Scrum Masters e diretoria.',
-    en: 'Enterprise full-stack web platform for governance, automation and product engineering, integrated with Azure DevOps. It centralizes interactive interfaces, executive indicators, release management, internal training and operational automations for PMs, POs, Scrum Masters and leadership.',
+    pt: 'Plataforma corporativa de governança e automação de produto integrada ao Azure DevOps. Backend em Python/Flask com APIs, integrações em tempo real e rotinas automatizadas para PMs, POs, Scrum Masters e diretoria.',
+    en: 'Enterprise governance and product automation platform integrated with Azure DevOps. Python/Flask backend with APIs, real-time integrations and automated routines for PMs, POs, Scrum Masters and leadership.',
   },
   features: [
     {
@@ -50,78 +50,39 @@ export const featuredProject: FeaturedProject = {
     },
     {
       bold: {
-        pt: 'SIGAP Academy:',
-        en: 'SIGAP Academy:',
+        pt: 'APIs & Integrações:',
+        en: 'APIs & Integrations:',
       },
       text: {
-        pt: 'ambiente integrado de capacitação para aprendizado do framework de trabalho da nossa área, com trilhas e materiais técnicos da operação.',
-        en: 'integrated training environment for learning our area’s work framework, featuring structured paths and technical materials.',
+        pt: 'APIs REST em Python/Flask com integração em tempo real ao Azure DevOps, alimentando dashboards e relatórios de sprint.',
+        en: 'Python/Flask REST APIs with real-time Azure DevOps integration, feeding sprint dashboards and reports.',
       },
     },
     {
       bold: {
-        pt: 'Dashboards & Relatórios de Sprint:',
-        en: 'Sprint Dashboards & Reports:',
+        pt: 'Rotinas Automatizadas:',
+        en: 'Automated Routines:',
       },
       text: {
-        pt: 'visão tática interativa de entregas, reprogramação automática de demandas e disparos de reports semanais.',
-        en: 'interactive tactical view of deliveries, automatic rescheduling of demands and weekly report dispatches.',
+        pt: 'reprogramação automática de demandas e disparos de reports semanais para acompanhamento das entregas.',
+        en: 'automatic rescheduling of demands and weekly report dispatches to track deliveries.',
       },
     },
     {
       bold: {
-        pt: 'Arquitetura Full-Stack & Segurança:',
-        en: 'Full-Stack Architecture & Security:',
+        pt: 'Dados & Segurança:',
+        en: 'Data & Security:',
       },
       text: {
-        pt: 'frontend moderno em React, APIs e integrações em tempo real com Azure DevOps, banco PostgreSQL e autenticação SSO via Keycloak.',
-        en: 'modern React frontend, real-time APIs and integrations with Azure DevOps, PostgreSQL database and SSO authentication via Keycloak.',
+        pt: 'banco PostgreSQL, autenticação SSO via Keycloak e interface em React consumindo as APIs.',
+        en: 'PostgreSQL database, SSO authentication via Keycloak and a React interface consuming the APIs.',
       },
     },
   ],
-  chips: ['React', 'TypeScript', 'Node.js', 'Python', 'Flask', 'PostgreSQL', 'Azure DevOps API', 'Keycloak'],
+  chips: ['Python', 'Flask', 'REST APIs', 'PostgreSQL', 'Azure DevOps API', 'Keycloak', 'Node.js', 'React'],
 };
 
 export const cliProjects: CliProject[] = [
-  {
-    id: 'tech-news-page',
-    tag: 'Frontend · Web UI',
-    title: 'Tech News Portal',
-    description: {
-      pt: 'Portal de notícias de tecnologia com layout editorial moderno em CSS Grid, hierarquia visual e seções categorizadas.',
-      en: 'Technology news portal featuring a modern CSS Grid editorial layout, visual hierarchy and categorized sections.',
-    },
-    filename: 'index.html',
-    lines: [
-      { prefixType: 'comment', text: '<!-- Tech News Portal Layout -->' },
-      { prefix: '1.', prefixType: 'number', text: ' <header class="navbar-grid">' },
-      { prefix: '2.', prefixType: 'number', text: ' <main class="featured-highlights">' },
-      { prefix: '3.', prefixType: 'number', text: ' <section class="most-read-weekly">' },
-      { prefix: '4.', prefixType: 'number', text: ' <section class="ai-highlights">' },
-      { prefix: '5.', prefixType: 'number', text: ' <aside class="ads-and-more">' },
-    ],
-    repoUrl: 'https://github.com/leonardoprokopowiskii/tech-news-page',
-  },
-  {
-    id: 'enrollment-form',
-    tag: 'Frontend · Forms & UI',
-    title: 'School Enrollment Form',
-    description: {
-      pt: 'Aplicação web de formulário de matrícula com foco em usabilidade, estados de foco/validação, upload customizado e seleção interativa.',
-      en: 'School enrollment web form built with a focus on usability, validation/focus states, custom file upload and interactive selection.',
-    },
-    filename: 'enrollment.html',
-    lines: [
-      { prefixType: 'comment', text: '<!-- Interactive Form Architecture -->' },
-      { prefix: '1.', prefixType: 'number', text: ' Child Information & Birth Certificate Dropzone' },
-      { prefix: '2.', prefixType: 'number', text: ' Residential Address & Automatic Fields' },
-      { prefix: '3.', prefixType: 'number', text: ' Guardian Contact & Validation States' },
-      { prefix: '4.', prefixType: 'number', text: ' Shift & Extracurricular Sports Radio Cards' },
-      { prefix: '5.', prefixType: 'number', text: ' Terms Consent & Form Actions' },
-    ],
-    repoUrl: 'https://github.com/leonardoprokopowiskii/enrollment-form',
-    delay: '.12s',
-  },
   {
     id: 'task-manager',
     tag: 'Backend · Python',
