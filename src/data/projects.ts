@@ -13,20 +13,14 @@ export interface FeaturedProject {
   chips: string[];
 }
 
-export interface TerminalLine {
-  prefix?: string;
-  prefixType?: 'prompt' | 'number' | 'comment';
-  text: string;
-}
-
-export interface CliProject {
+export interface ComingSoonProject {
   id: string;
-  tag: string;
-  title: string;
-  description: Record<Language, string>;
   filename: string;
-  lines: TerminalLine[];
-  repoUrl: string;
+  tag: Record<Language, string>;
+  title: Record<Language, string>;
+  description: Record<Language, string>;
+  /** Relative widths (%) of the placeholder code lines. */
+  skeleton: number[];
   delay?: string;
 }
 
@@ -82,46 +76,28 @@ export const featuredProject: FeaturedProject = {
   chips: ['Python', 'Flask', 'REST APIs', 'PostgreSQL', 'Azure DevOps API', 'Keycloak', 'Node.js', 'React'],
 };
 
-export const cliProjects: CliProject[] = [
+export const comingSoonProjects: ComingSoonProject[] = [
   {
-    id: 'task-manager',
-    tag: 'Backend · Python',
-    title: 'Task Manager',
+    id: 'soon-api',
+    filename: 'api.py',
+    tag: { pt: 'Em breve · Backend', en: 'Coming soon · Backend' },
+    title: { pt: 'API REST em Python', en: 'Python REST API' },
     description: {
-      pt: 'Gerenciador de tarefas em Python com operações completas de CRUD, controle de status e arquitetura modular no terminal.',
-      en: 'Task manager in Python featuring full CRUD operations, status tracking and modular CLI architecture.',
+      pt: 'Um novo projeto de backend está a caminho, com foco em APIs REST, banco de dados e boas práticas.',
+      en: 'A new backend project is on the way, focused on REST APIs, databases and good practices.',
     },
-    filename: 'task_manager.py',
-    lines: [
-      { prefix: '$', prefixType: 'prompt', text: ' python task_manager.py' },
-      { prefix: '1.', prefixType: 'number', text: ' Add a new task' },
-      { prefix: '2.', prefixType: 'number', text: ' View all tasks' },
-      { prefix: '3.', prefixType: 'number', text: ' Update a task' },
-      { prefix: '4.', prefixType: 'number', text: ' Mark a task as closed' },
-      { prefix: '5.', prefixType: 'number', text: ' Remove closed tasks' },
-      { prefix: '6.', prefixType: 'number', text: ' Exit' },
-    ],
-    repoUrl: 'https://github.com/leonardoprokopowiskii/task-manager',
+    skeleton: [46, 72, 58, 80, 38, 64],
   },
   {
-    id: 'contact-manager',
-    tag: 'Backend · Python',
-    title: 'Contact Manager',
+    id: 'soon-automation',
+    filename: 'automation.py',
+    tag: { pt: 'Em breve · Automação', en: 'Coming soon · Automation' },
+    title: { pt: 'Automação com Python', en: 'Python Automation' },
     description: {
-      pt: 'Sistema de gerenciamento de contatos com operações de CRUD, marcação de favoritos e filtragem dedicada.',
-      en: 'Contact management system featuring CRUD operations, favorite toggling and dedicated filtering.',
+      pt: 'Mais um projeto em desenvolvimento, explorando automações, integrações e processamento de dados.',
+      en: 'Another project in the works, exploring automations, integrations and data processing.',
     },
-    filename: 'contact_manager.py',
-    lines: [
-      { prefix: '$', prefixType: 'prompt', text: ' python contact_manager.py' },
-      { prefixType: 'comment', text: '---- Contacts manager -----' },
-      { prefix: '1.', prefixType: 'number', text: ' Add a contact' },
-      { prefix: '2.', prefixType: 'number', text: ' View contacts' },
-      { prefix: '3.', prefixType: 'number', text: ' Edit a contact' },
-      { prefix: '4.', prefixType: 'number', text: ' Mark or unmark contact as favorite' },
-      { prefixType: 'comment', text: '...' },
-    ],
-    repoUrl: 'https://github.com/leonardoprokopowiskii/contact-manager',
+    skeleton: [52, 66, 40, 76, 60, 34],
     delay: '.12s',
   },
 ];

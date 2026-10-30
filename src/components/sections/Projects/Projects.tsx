@@ -1,5 +1,5 @@
 import { useLanguage } from '../../../i18n/LanguageContext';
-import { featuredProject, cliProjects } from '../../../data/projects';
+import { featuredProject, comingSoonProjects } from '../../../data/projects';
 import { Card } from '../../ui/Card/Card';
 import { CodeWindow } from '../../ui/CodeWindow/CodeWindow';
 import { Dual, tBoth } from '../../ui/Dual/Dual';
@@ -59,44 +59,38 @@ export function Projects() {
           </small>
         </Card>
 
-        {cliProjects.map((project) => (
-          <Card key={project.id} className={styles.projectCard} delay={project.delay}>
-            <span className={styles.tag}>{project.tag}</span>
-            <h3 className={styles.cardTitle}>{project.title}</h3>
+        {comingSoonProjects.map((project) => (
+          <Card
+            key={project.id}
+            interactive={false}
+            className={`${styles.projectCard} ${styles.soonCard}`}
+            delay={project.delay}
+          >
+            <span className={`${styles.tag} ${styles.soonTag}`}>
+              <i className={styles.soonDot} aria-hidden="true" />
+              <Dual values={project.tag} />
+            </span>
+            <h3 className={styles.cardTitle}>
+              <Dual values={project.title} />
+            </h3>
             <p className={styles.cardDesc}>
               <Dual values={project.description} />
             </p>
 
-            <CodeWindow filename={project.filename} flat>
-              {project.lines.map((line, idx) => (
-                <div key={idx}>
-                  {line.prefixType === 'prompt' && (
-                    <>
-                      <span className={styles.prompt}>{line.prefix}</span>
-                      {line.text}
-                    </>
-                  )}
-                  {line.prefixType === 'number' && (
-                    <>
-                      <span className={styles.num}>{line.prefix}</span>
-                      {line.text}
-                    </>
-                  )}
-                  {line.prefixType === 'comment' && (
-                    <span className={styles.comment}>{line.text}</span>
-                  )}
-                </div>
-              ))}
-            </CodeWindow>
+            <div className={styles.skelWrap} aria-hidden="true">
+              <CodeWindow filename={project.filename} flat>
+                {project.skeleton.map((width, idx) => (
+                  <div key={idx} className={styles.skelLine}>
+                    <span className={styles.skelBar} style={{ width: `${width}%`, animationDelay: `${idx * 0.18}s` }} />
+                  </div>
+                ))}
+              </CodeWindow>
+            </div>
 
-            <a
-              className={styles.go}
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t.projects.viewOnGithub}
-            </a>
+            <span className={styles.soonPill}>
+              <i className={styles.soonDot} aria-hidden="true" />
+              <Dual values={{ pt: 'Em breve', en: 'Coming soon' }} />
+            </span>
           </Card>
         ))}
       </div>

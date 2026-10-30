@@ -82,7 +82,7 @@ export const translations: Record<Language, Translations> = {
     projects: {
       title: 'Projetos',
       subtitle:
-        'Da plataforma corporativa de automação e APIs a sistemas CRUD em Python rodando no terminal.',
+        'Da plataforma corporativa integrada ao Azure DevOps aos novos projetos em desenvolvimento.',
       workTag: 'Projeto profissional · Backend & APIs',
       viewOnGithub: 'Ver no GitHub',
       internalNote: 'Projeto corporativo interno, sem repositório público.',
@@ -141,7 +141,7 @@ export const translations: Record<Language, Translations> = {
     projects: {
       title: 'Projects',
       subtitle:
-        'From an enterprise automation and API platform to Python CRUD systems running in the terminal.',
+        'From the enterprise platform integrated with Azure DevOps to upcoming projects in development.',
       workTag: 'Work project · Backend & APIs',
       viewOnGithub: 'View on GitHub',
       internalNote: 'Internal enterprise project, no public repository.',
