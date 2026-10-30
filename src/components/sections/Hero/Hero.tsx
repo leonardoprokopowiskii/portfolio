@@ -25,22 +25,22 @@ const CODE_LINES: CodeLine[] = [
     { text: ' = {' },
   ],
   [
-    { text: '  "name": ' },
+    { text: '    "name": ' },
     { text: '"Leonardo Prokopowiski"', className: styles.s },
     { text: ',' },
   ],
   [
-    { text: '  "role": ' },
+    { text: '    "role": ' },
     { text: '"Python Backend Developer"', className: styles.s },
     { text: ',' },
   ],
   [
-    { text: '  "company": ' },
+    { text: '    "company": ' },
     { text: '"SPRO, an NTT DATA company"', className: styles.s },
     { text: ',' },
   ],
   [
-    { text: '  "backend": [' },
+    { text: '    "backend": [' },
     { text: '"Python"', className: styles.s },
     { text: ', ' },
     { text: '"Flask"', className: styles.s },
@@ -49,7 +49,7 @@ const CODE_LINES: CodeLine[] = [
     { text: '],' },
   ],
   [
-    { text: '  "db": [' },
+    { text: '    "db": [' },
     { text: '"PostgreSQL"', className: styles.s },
     { text: ', ' },
     { text: '"MongoDB"', className: styles.s },
@@ -58,7 +58,7 @@ const CODE_LINES: CodeLine[] = [
     { text: '],' },
   ],
   [
-    { text: '  "devops": [' },
+    { text: '    "devops": [' },
     { text: '"Azure DevOps"', className: styles.s },
     { text: ', ' },
     { text: '"Docker"', className: styles.s },
@@ -67,7 +67,7 @@ const CODE_LINES: CodeLine[] = [
     { text: '],' },
   ],
   [
-    { text: '  "frontend": [' },
+    { text: '    "frontend": [' },
     { text: '"React"', className: styles.s },
     { text: ', ' },
     { text: '"JavaScript"', className: styles.s },
