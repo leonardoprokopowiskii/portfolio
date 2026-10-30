@@ -253,6 +253,12 @@
   min-height: 1.8em;
 }
 
+/* Hanging indent: if a long line wraps on narrow screens, continuation stays aligned under the indent. */
+.stage .codeLine {
+  padding-left: calc(clamp(10px, 2.8cqi, 20px) + 6ch);
+  text-indent: -6ch;
+}
+
 .codeLine {
   min-height: 1.8em;
   opacity: 0;

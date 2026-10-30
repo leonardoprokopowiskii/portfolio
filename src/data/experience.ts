@@ -21,20 +21,20 @@ export const experienceItems: ExperienceItem[] = [
       en: 'SPRO, an NTT DATA company',
     },
     subtitle: {
-      pt: 'Aprendiz de Produtos · Desenvolvimento Backend',
-      en: 'Products Apprentice · Backend Development',
+      pt: 'Aprendiz de Produtos · Desenvolvimento de Software Full-Stack',
+      en: 'Products Apprentice · Full-Stack Software Development',
     },
     bullets: {
       pt: [
-        'Desenvolvo e mantenho APIs, automações e integrações em Python e Flask para aplicações web internas.',
-        'Atuação prática com Python, Flask, Node.js, APIs REST, PostgreSQL, Docker e React no frontend.',
-        'Implementação de autenticação (SSO/Keycloak), relatórios gerenciais e automações de acompanhamento de projetos.',
+        'Desenvolvo e evoluo aplicações web internas de ponta a ponta: interfaces modernas, APIs, automações e integrações.',
+        'Atuação prática com React, TypeScript, JavaScript, Node.js, Python, Flask, APIs REST e Docker.',
+        'Implementação de fluxos de autenticação (SSO/Keycloak), relatórios gerenciais, dashboards interativos e automações de acompanhamento de projetos.',
         'Vivência corporativa com Git e Azure DevOps: branches, pull requests, CI/CD e governança de entregas.',
       ],
       en: [
-        'I build and maintain APIs, automations and integrations in Python and Flask for internal web applications.',
-        'Hands-on work with Python, Flask, Node.js, REST APIs, PostgreSQL, Docker and React on the frontend.',
-        'Implementation of authentication (SSO/Keycloak), executive reports and project-tracking automations.',
+        'Build and evolve end-to-end internal web applications: modern interfaces, APIs, automations and integrations.',
+        'Hands-on work with React, TypeScript, JavaScript, Node.js, Python, Flask, REST APIs and Docker.',
+        'Implementation of authentication flows (SSO/Keycloak), executive reports, interactive dashboards and project-tracking automations.',
         'Enterprise workflow with Git and Azure DevOps: branches, pull requests, CI/CD and delivery governance.',
       ],
     },
@@ -55,12 +55,12 @@ export const experienceItems: ExperienceItem[] = [
     },
     bullets: {
       pt: [
-        'Formação complementar na Rocketseat: trilha com Python, Flask, Node.js, JavaScript, TypeScript, React, HTML/CSS e Git.',
-        'Foco atual em backend: APIs RESTful, Prisma ORM, testes automatizados (Jest), autenticação JWT, bancos relacionais e Docker.',
+        'Formação complementar na Rocketseat: trilha Full-Stack com React, TypeScript, JavaScript, Node.js, HTML/CSS, Python, Flask e Git.',
+        'Foco atual em arquitetura web Full-Stack: APIs RESTful, Prisma ORM, testes automatizados (Jest), autenticação JWT, bancos relacionais e Docker.',
       ],
       en: [
-        'Complementary training at Rocketseat: track covering Python, Flask, Node.js, JavaScript, TypeScript, React, HTML/CSS and Git.',
-        'Currently focused on backend: RESTful APIs, Prisma ORM, automated testing (Jest), JWT authentication, relational databases and Docker.',
+        'Complementary training at Rocketseat: Full-Stack track covering React, TypeScript, JavaScript, Node.js, HTML/CSS, Python, Flask and Git.',
+        'Currently focused on Full-Stack web architecture: RESTful APIs, Prisma ORM, automated testing (Jest), JWT authentication, relational databases and Docker.',
       ],
     },
     delay: '.12s',

@@ -28,8 +28,8 @@ export const featuredProject: FeaturedProject = {
   id: 'spro-sigap',
   title: 'SPRO SIGAP',
   description: {
-    pt: 'Plataforma corporativa de governança e automação de produto integrada ao Azure DevOps. Backend em Python/Flask com APIs, integrações em tempo real e rotinas automatizadas para PMs, POs, Scrum Masters e diretoria.',
-    en: 'Enterprise governance and product automation platform integrated with Azure DevOps. Python/Flask backend with APIs, real-time integrations and automated routines for PMs, POs, Scrum Masters and leadership.',
+    pt: 'Plataforma web full-stack corporativa de governança, automação e engenharia de produto integrada ao Azure DevOps. Centraliza interfaces interativas, indicadores executivos, gestão de releases, capacitação interna e automações operacionais para PMs, POs, Scrum Masters e diretoria.',
+    en: 'Enterprise full-stack web platform for governance, automation and product engineering, integrated with Azure DevOps. It centralizes interactive interfaces, executive indicators, release management, internal training and operational automations for PMs, POs, Scrum Masters and leadership.',
   },
   features: [
     {
@@ -44,58 +44,58 @@ export const featuredProject: FeaturedProject = {
     },
     {
       bold: {
-        pt: 'APIs & Integrações:',
-        en: 'APIs & Integrations:',
+        pt: 'SIGAP Academy:',
+        en: 'SIGAP Academy:',
       },
       text: {
-        pt: 'APIs REST em Python/Flask com integração em tempo real ao Azure DevOps, alimentando dashboards e relatórios de sprint.',
-        en: 'Python/Flask REST APIs with real-time Azure DevOps integration, feeding sprint dashboards and reports.',
+        pt: 'ambiente integrado de capacitação para aprendizado do framework de trabalho da nossa área, com trilhas e materiais técnicos da operação.',
+        en: 'integrated training environment for learning our area’s work framework, featuring structured paths and technical materials.',
       },
     },
     {
       bold: {
-        pt: 'Rotinas Automatizadas:',
-        en: 'Automated Routines:',
+        pt: 'Dashboards & Relatórios de Sprint:',
+        en: 'Sprint Dashboards & Reports:',
       },
       text: {
-        pt: 'reprogramação automática de demandas e disparos de reports semanais para acompanhamento das entregas.',
-        en: 'automatic rescheduling of demands and weekly report dispatches to track deliveries.',
+        pt: 'visão tática interativa de entregas, reprogramação automática de demandas e disparos de reports semanais.',
+        en: 'interactive tactical view of deliveries, automatic rescheduling of demands and weekly report dispatches.',
       },
     },
     {
       bold: {
-        pt: 'Dados & Segurança:',
-        en: 'Data & Security:',
+        pt: 'Arquitetura Full-Stack & Segurança:',
+        en: 'Full-Stack Architecture & Security:',
       },
       text: {
-        pt: 'banco PostgreSQL, autenticação SSO via Keycloak e interface em React consumindo as APIs.',
-        en: 'PostgreSQL database, SSO authentication via Keycloak and a React interface consuming the APIs.',
+        pt: 'frontend moderno em React, APIs e integrações em tempo real com Azure DevOps, banco PostgreSQL e autenticação SSO via Keycloak.',
+        en: 'modern React frontend, real-time APIs and integrations with Azure DevOps, PostgreSQL database and SSO authentication via Keycloak.',
       },
     },
   ],
-  chips: ['Python', 'Flask', 'REST APIs', 'PostgreSQL', 'Azure DevOps API', 'Keycloak', 'Node.js', 'React'],
+  chips: ['React', 'TypeScript', 'Node.js', 'Python', 'Flask', 'PostgreSQL', 'Azure DevOps API', 'Keycloak'],
 };
 
 export const comingSoonProjects: ComingSoonProject[] = [
   {
-    id: 'soon-api',
-    filename: 'api.py',
-    tag: { pt: 'Em breve · Backend', en: 'Coming soon · Backend' },
-    title: { pt: 'API REST em Python', en: 'Python REST API' },
+    id: 'soon-fullstack',
+    filename: 'app.ts',
+    tag: { pt: 'Em breve · Full-Stack', en: 'Coming soon · Full-Stack' },
+    title: { pt: 'Aplicação Full-Stack', en: 'Full-Stack Application' },
     description: {
-      pt: 'Um novo projeto de backend está a caminho, com foco em APIs REST, banco de dados e boas práticas.',
-      en: 'A new backend project is on the way, focused on REST APIs, databases and good practices.',
+      pt: 'Um novo projeto full-stack está a caminho, com interface em React, API em Node.js e banco de dados.',
+      en: 'A new full-stack project is on the way, with a React interface, a Node.js API and a database.',
     },
     skeleton: [46, 72, 58, 80, 38, 64],
   },
   {
-    id: 'soon-automation',
-    filename: 'automation.py',
-    tag: { pt: 'Em breve · Automação', en: 'Coming soon · Automation' },
-    title: { pt: 'Automação com Python', en: 'Python Automation' },
+    id: 'soon-web',
+    filename: 'platform.ts',
+    tag: { pt: 'Em breve · Web', en: 'Coming soon · Web' },
+    title: { pt: 'Plataforma Web', en: 'Web Platform' },
     description: {
-      pt: 'Mais um projeto em desenvolvimento, explorando automações, integrações e processamento de dados.',
-      en: 'Another project in the works, exploring automations, integrations and data processing.',
+      pt: 'Mais um projeto em desenvolvimento, explorando interfaces modernas, APIs RESTful e integrações.',
+      en: 'Another project in the works, exploring modern interfaces, RESTful APIs and integrations.',
     },
     skeleton: [52, 66, 40, 76, 60, 34],
     delay: '.12s',

@@ -14,51 +14,61 @@ interface CodeToken {
 
 type CodeLine = CodeToken[];
 
-const COMMENT_PART_1 = '# always learning,';
+const COMMENT_PART_1 = '// always learning,';
 const COMMENT_PART_2 = ' always building';
 const COMMENT_PART_3 = '!';
 const COMMENT_FULL = `${COMMENT_PART_1}${COMMENT_PART_2}${COMMENT_PART_3}`;
 
 const CODE_LINES: CodeLine[] = [
   [
+    { text: 'export const ', className: styles.k },
     { text: 'developer', className: styles.f },
     { text: ' = {' },
   ],
   [
-    { text: '    "name": ' },
+    { text: '  name: ' },
     { text: '"Leonardo Prokopowiski"', className: styles.s },
     { text: ',' },
   ],
   [
-    { text: '    "role": ' },
-    { text: '"Python Backend Developer"', className: styles.s },
+    { text: '  role: ' },
+    { text: '"Full-Stack Developer"', className: styles.s },
     { text: ',' },
   ],
   [
-    { text: '    "company": ' },
+    { text: '  company: ' },
     { text: '"SPRO, an NTT DATA company"', className: styles.s },
     { text: ',' },
   ],
   [
-    { text: '    "backend": [' },
-    { text: '"Python"', className: styles.s },
+    { text: '  frontend: [' },
+    { text: '"React"', className: styles.s },
     { text: ', ' },
-    { text: '"Flask"', className: styles.s },
+    { text: '"JavaScript"', className: styles.s },
     { text: ', ' },
-    { text: '"FastAPI"', className: styles.s },
+    { text: '"TypeScript"', className: styles.s },
     { text: '],' },
   ],
   [
-    { text: '    "db": [' },
+    { text: '  backend: [' },
+    { text: '"Node.js"', className: styles.s },
+    { text: ', ' },
+    { text: '"Python"', className: styles.s },
+    { text: ', ' },
+    { text: '"Flask"', className: styles.s },
+    { text: '],' },
+  ],
+  [
+    { text: '  databases: [' },
     { text: '"PostgreSQL"', className: styles.s },
     { text: ', ' },
-    { text: '"MongoDB"', className: styles.s },
+    { text: '"MySQL"', className: styles.s },
     { text: ', ' },
     { text: '"SQLite"', className: styles.s },
     { text: '],' },
   ],
   [
-    { text: '    "devops": [' },
+    { text: '  devops: [' },
     { text: '"Azure DevOps"', className: styles.s },
     { text: ', ' },
     { text: '"Docker"', className: styles.s },
@@ -67,14 +77,9 @@ const CODE_LINES: CodeLine[] = [
     { text: '],' },
   ],
   [
-    { text: '    "frontend": [' },
-    { text: '"React"', className: styles.s },
-    { text: ', ' },
-    { text: '"JavaScript"', className: styles.s },
-    { text: '],' },
-  ],
-  [
-    { text: '}' },
+    { text: '} ' },
+    { text: 'as const', className: styles.k },
+    { text: ';' },
   ],
   [
     { text: ' ' },
@@ -187,7 +192,7 @@ export function Hero() {
         </div>
 
         <div className={styles.stage}>
-          <CodeWindow filename="developer.py" ariaLabel={t.hero.codeAria} heroPadding>
+          <CodeWindow filename="developer.ts" ariaLabel={t.hero.codeAria} heroPadding>
             {CODE_LINES.map((lineTokens, lineIdx) => {
               const isLastLine = lineIdx === CODE_LINES.length - 1;
 

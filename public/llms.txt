@@ -1,12 +1,12 @@
-# Leonardo Prokopowiski - Python Backend Developer
+# Leonardo Prokopowiski - Full-Stack Developer
 
-> Desenvolvedor Backend especializado em Python, Flask, APIs RESTful, automações e sistemas escaláveis.
+> Desenvolvedor Full-Stack especializado em aplicações web modernas, APIs RESTful e soluções escaláveis com React, TypeScript, Node.js e Python.
 
 ## Sobre / About
 - **Nome:** Leonardo Prokopowiski
 - **Cargo Atual:** Aprendiz na SPRO, an NTT DATA company (Curitiba, PR, Brasil)
 - **Formação:** Estudante de Engenharia de Software na UniCesumar
-- **Foco:** Desenvolvimento backend com Python, APIs REST, automações, bancos de dados relacionais e integrações.
+- **Foco:** Desenvolvimento full-stack, interfaces de alta performance, microinterações fluidas e backends estruturados.
 - **Idiomas:** Português (Nativo), Inglês (Intermediário / Técnico).
 
 ## Stack Tecnológica / Technical Skills

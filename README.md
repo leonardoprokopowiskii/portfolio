@@ -1,6 +1,6 @@
 # Leonardo Prokopowiski — Portfolio
 
-Personal portfolio of **Leonardo Prokopowiski**, Python Backend Developer focused on **Python, Flask, RESTful APIs, Node.js, and PostgreSQL**, based in Curitiba, Brazil.
+Personal portfolio of **Leonardo Prokopowiski**, Full-Stack Developer focused on **React, TypeScript, Node.js, Python, Flask, and RESTful APIs**, based in Curitiba, Brazil.
 
 Built with **React 18 + TypeScript + Vite** and **pure CSS Modules** (zero CSS frameworks).
 
